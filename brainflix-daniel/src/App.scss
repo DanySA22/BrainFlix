@@ -1,0 +1,84 @@
+@use './styles/partials/global' as *;
+@use './styles/partials/variables' as *;   
+@use './styles/partials/fonts' as *;
+@import './styles/partials/mixins';
+
+.header  {
+    display: flex;
+    flex-direction: column;
+    border: 2px red solid;
+
+    &__logo{
+
+    }
+    &__functionalities{
+
+    }
+    &__seaarch{
+
+    }
+
+    &__upload{
+
+    }
+
+    &__image{
+
+    }
+
+}
+
+.main{}
+
+.video-Image{}
+
+.main-video{
+
+    &__header{}
+
+    &__info{}
+
+    &__info1{}
+    
+    &__author{}
+
+    &__date{}
+
+    &__info2{}
+
+    &__views{}
+
+    &__likes{}
+
+    &__details{}
+    
+    &__text{} 
+}
+
+
+.comment{
+    &__amount{}
+    &__subdivision{}
+    &__image{}
+    &__form{}
+    &__form-Label{}
+    &__form-Input{}
+    &__submit-Button{}
+
+    &__display{}
+    &__user{}
+    &__user-Image{}
+    &__user-Info{}
+    &__user-Name{}
+    &__user-Date{}
+    &__user-Text{}
+}
+
+.side-videos{
+    &__header{}
+    &__Item{}
+    &__Image{}
+    &__Info{}
+    &__Name{}
+    &__Creator{}
+}

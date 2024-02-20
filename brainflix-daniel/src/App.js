@@ -3,23 +3,42 @@ import './App.scss';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <body> 
+      <header> 
+        <h3> Logo </h3>
+        <input/> 
+        <img/>
+        <img/>
       </header>
-    </div>
-  );
+      <main>
+        {/* Big video Image */}
+        <section>
+        <img/>  
+        </section> 
+        {/* Main Video information */}
+        <section></section>
+        {/* Comments section */}
+        <section className='comment'>
+        <h2 className="comment__amount"> 3 Comments </h2>
+        <div className="comment__subdivision">
+            <img src="./assets/Images/Mohan-muruge.jpg" class="comment__image" alt="Mohan Muruge image">
+            <form action="" class="comment__form">
+                <label for="" class="comment__form-Label"> NAME</label>
+                <input type="text" name="nameInput" class="comment__form-Input" placeholder="Enter your name">
+                <label for=""  class="comment__form-Label">COMMENT</label>
+                <input type="text" name="commentInput" class="comment__form-Input comment__form-Input--height comment__form-Input--placeholder" placeholder="Add a new comment" >
+                  
+                 <button class="comment__submit-Button">COMMENT</button>
+            </form>
+            </div >
+        </section>
+        {/* Side Videos section */}
+        <section></section>
+      </main>
+
+
+    </body>
+  )
 }
 
 export default App;

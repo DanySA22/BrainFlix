@@ -6,46 +6,115 @@
 .header  {
     display: flex;
     flex-direction: column;
-    
     flex-wrap: wrap;
     align-items: center;
     margin: 1rem;
+
+    @include responsiveness('tablet') {
+        
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 0px;
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+    @include responsiveness('desktop') { 
+         
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 0px;     
+        margin-left: 7rem;
+        margin-right: 7rem; 
+    }
     &__logo{
         max-inline-size: 100%;
-        
         width: 50%;
         line-height: 1.5rem;
-        
+        margin-bottom: 1rem;
+
+        @include responsiveness('tablet') {
+            
+            width: 20%;
+            margin: 0px;
+        }
+        @include responsiveness('desktop') {
+             
+            width: 15%;
+            margin: 0px;
+
+        }
     }
     &__functionalities{
        display: flex;
        flex-direction: row;
+       justify-content: space-between;
        width: 100%;
        flex-wrap: wrap;
+
+       @include responsiveness('tablet') {
+        
+        width: 65%;
+    }
+    @include responsiveness('desktop') {    
+         
+        width: 50%;     
+    }
     }
     &__search{
        order: 1;
        width: 80%;
-       border: 2px blue solid;
+       height: 3rem;
+       border-radius: 0.25rem;
+       background-color: $colorSecAl;
        background-image: url('./assets/Icons/search.svg');
-       background-position: left center;
+       background-position: 4% center;
        background-repeat: no-repeat;
-       
+       text-align: start;
+       border: 1px $colorSecMer solid;
+       padding-left: 15%;
+       margin-bottom: 1rem;
+       vertical-align: middle;
+       font-family: 'AvenirNext LT Pro', sans-serif;
+
+       @include responsiveness('tablet') {
+        order:0;
+        width: 50%;
+        margin: 0px;
+        // height: 4rem;
+     }
+      @include responsiveness('desktop') { 
+        order:0;
+        width: 50%;
+        margin: 0px; 
+        height: 4rem;       
+      }
     }
 
     &__upload{
         order: 3;
         width: 100%;
-        
         @include SizeLineWeight(0.7rem, 3rem, 700);
         background-color: $colorBlue;
         color: $colorW;
+        background-image: url('./assets/Icons/upload.svg');
+       background-position: 4% center;
+       background-repeat: no-repeat;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        border-radius: 5%;
+        border-radius: 0.25rem;
         border: 0px;
+
+        @include responsiveness('tablet') {
+            order:0;
+            width: 30%;
+            
+        }
+        @include responsiveness('desktop') {      
+            order:0;
+            width: 30%;   
+        }
         
     }
     &__upload:hover{
@@ -56,35 +125,55 @@
         border-radius: 50%;
         width: 3rem;
         height: 3rem;
-        margin-top: 2rem;
         order: 2;
+
         @include responsiveness('tablet') {
-            margin-top: 3rem;
+            order:0;
+            
         
         }
         @include responsiveness('desktop') {
-            margin-top: 3rem;
-            
+            width: 4rem;
+            height: 4rem;
+            order:0;
         }
         
     }
 
 }
 
-.main{}
+.main{
+
+    @include responsiveness('tablet') {
+    }
+    @include responsiveness('desktop') {         
+    }
+}
 
 .video-Image{
     max-inline-size: 100%;
     width: 100%;
     aspect-ratio: 1.6;
-    background-image: url('./assets/Icons/search.svg');
-
+    @include responsiveness('tablet') {
+    }
+    @include responsiveness('desktop') {         
+    }
 }
 
 .main-video{
     margin: 1rem;
+
+    @include responsiveness('tablet') {
+    }
+    @include responsiveness('desktop') {         
+    }
     &__header{
         @include SizeLineWeight(1.5rem, 2rem, 700);
+
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
     }
 
     &__info{
@@ -93,6 +182,11 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
     }
 
     &__info1{
@@ -101,16 +195,30 @@
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
     
     }
     
     &__author{ 
         @include SizeLineWeight(0.8rem, 1.1rem, 700);
         margin-bottom: 0px;
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
     }
 
     &__date{
        color: $colorS;
+
+       @include responsiveness('tablet') {
+    }
+    @include responsiveness('desktop') {         
+    }
     
     }
 
@@ -120,30 +228,79 @@
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
     }
 
     &__views{
+        background-image: url('./assets/Icons/views.svg');
+        background-position: 4% center;
+        background-repeat: no-repeat;
         color: $colorS;
         margin-bottom: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
     }
 
     &__likes{
         color: $colorS;
+        background-image: url('./assets/Icons/likes.svg');
+        background-position: 4% center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
     }
 
-    &__details{}
+    &__details{
+
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
+    }
     
     &__text{
         @include SizeLineWeight(0.8rem, 1.1rem, 400);
         color: $colorB;
+
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
     } 
 }
 
 
 .comment{
     margin: 1rem;
+    @include responsiveness('tablet') {
+    }
+    @include responsiveness('desktop') {         
+    }
     &__amount{
         @include SizeLineWeight(0.8rem, 1.1rem, 700);
+
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
     }
     &__subdivision{
         display: flex;
@@ -160,13 +317,13 @@
             padding-right: 12rem;
             margin-left: 14rem;
             flex: 1 0 0;
-        }}
+        }}  
     &__image{
         border-radius: 50%;
         
         width: 3rem;
         height: 3rem;
-        margin-top: 2rem;
+        margin-top: 3rem;
         @include responsiveness('tablet') {
             margin-top: 3rem;
         
@@ -197,17 +354,23 @@
         color: $colorS;
         margin-bottom: 0.5rem;
         margin-top: 1.5rem;
-        @include SizeLineWeight(0.7rem, 1.25rem, 600);
+        @include SizeLineWeight(0.8rem, 1.25rem, 600);
+
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
        
     }
     &__form-Input{
-        // border: 1px solid $colorSecMer;
-        
+        border: 1px $colorSecMer solid;
         width: 100%;
+        height: 7rem;
         border-radius: 0.25rem;
         padding: 0.75rem;
         background-color: $colorSecAl;
-
+        font-family: 'AvenirNext LT Pro', sans-serif;
+        padding-top: 1rem;
         @include responsiveness('tablet') {
             
             padding: 1rem;
@@ -221,7 +384,6 @@
     &__submit-Button{
         width: 100%;
         color: $colorW;
-        text-align: center;
         padding-top: 0.7rem;
         padding-bottom: 0.7rem;
         border-radius: 0.2rem;
@@ -232,6 +394,11 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: center;
+        background-image: url('./assets/Icons/add_comment.svg');
+        background-position: 4% center;
+        background-repeat: no-repeat;
+
         @include responsiveness('tablet') {
             width: 25%;
             align-self: end;
@@ -242,20 +409,24 @@
             align-self: end;
             
         }
-        &--add{
-            
-             
-        }
-
+       
         &--text{
             margin: 0px;
             text-align: center;
            
-            
+            @include responsiveness('tablet') {
+            }
+            @include responsiveness('desktop') {         
+            }
         }
     }
 
-    &__display{}
+    &__display{
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
+    }
     &__user{
         border-top: 1px $colorSecMer solid;
         border-bottom: 1px $colorSecMer solid;
@@ -283,6 +454,11 @@
         width: 3rem;
         height: 3rem;
         background-color: $colorSecMer;
+
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
         
     }
     &__user-Info{
@@ -334,6 +510,11 @@
         min-width: 100%;
         color: $colorB;
 
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
+
     }
 }
 
@@ -342,18 +523,31 @@
     display: flex;
     flex-direction: column;
     
-    
+    @include responsiveness('tablet') {
+    }
+    @include responsiveness('desktop') {         
+    }
+
     &__header{ 
         color: $colorS;
         @include SizeLineWeight(0.8rem, 1.1rem, 600);
+
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
     
     }
     &__Item{
         display: flex;
         flex-direction: row;
         justify-content: start;
-        
         margin-bottom: 1rem;
+
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
     }
     &__Image{
         border-radius: 10%;
@@ -361,6 +555,11 @@
         block-size: auto;
         width: 40%;
         aspect-ratio: 1.4;
+
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
     }
     &__Info{
         display: flex;
@@ -368,14 +567,29 @@
         justify-content: space-between;
         align-items: start;
         padding-left: 0.5rem;
+
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
     }
     &__Name{
         @include SizeLineWeight(0.8rem, 1.3rem, 700);
         margin: 0px;
         flex: 1 1 100%;
+
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
     }
     &__Creator{
         color: $colorB;
         margin: 0px;
+
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
     }
 }

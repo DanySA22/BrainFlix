@@ -1,16 +1,11 @@
 import logo from './assets/Logo/BrainFlix-logo.svg';
 import mohan from './assets/images/Mohan-muruge.jpg'
-import likes from './assets/Icons/likes.svg';
-import views from './assets/Icons/views.svg';
-import add_comment from './assets/Icons/add_comment.svg';
 import close_fullscreen from './assets/Icons/close_fullscreen.svg';
 import fullscreen from './assets/Icons/fullscreen.svg';
 import pause from './assets/Icons/pause.svg';
 import play from './assets/Icons/play.svg';
 import publish from './assets/Icons/publish.svg';
 import scrub from './assets/Icons/scrub.svg';
-import search from './assets/Icons/search.svg';
-import upload from './assets/Icons/upload.svg';
 import volume_off from './assets/Icons/volume_off.svg';
 import volume_up from './assets/Icons/volume_up.svg';
 import videoDetails from './data/video-details.json'
@@ -25,11 +20,11 @@ function App() {
       <header className="header"> 
         <img src= {logo} alt='Brainflix logo' className='header__logo'/>
         <div className='header__functionalities'>
-        <textarea  className ='header__search' cols="30" rows="3">
-          Search
+        <textarea  className ='header__search' cols="30">
+          Search 
         </textarea>
         {/* <input placeholder="Search" className ='header__search'/>  */}
-        <button className ='header__upload'> <img src= {upload}/> UPLOAD </button>
+        <button className ='header__upload'>  UPLOAD </button>
         <img src={mohan} alt= "Mohan's Image" className='header__image'/>
         </div>
       </header>
@@ -47,8 +42,8 @@ function App() {
            <p className='main-video__date'>  8/8/2023 </p> 
            </div> 
            <div className='main-video__info2'>
-            <p className='main-video__views'> <img src= {views}/> 980,544 </p>
-            <p className='main-video__likes'> <img src= {likes}/> 22,479 </p>
+            <p className='main-video__views'> 980,544 </p>
+            <p className='main-video__likes'> 22,479 </p>
            </div> 
            </div> 
            <div className='main-video__details'>
@@ -73,7 +68,7 @@ function App() {
                 <textarea name="nameInput" className="comment__form-Input" cols="50">
                  Add a new comment
                 </textarea>
-                <button className="comment__submit-Button"> <img className="comment__submit-Button--add"src= {add_comment}/> <p className="comment__submit-Button--text"> COMMENT </p></button>
+                <button className="comment__submit-Button"> <p className="comment__submit-Button--text"> COMMENT </p></button>
             </form> 
           </div >
           <div className = 'comment__display'>

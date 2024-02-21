@@ -73,8 +73,10 @@
        border: 1px $colorSecMer solid;
        padding-left: 15%;
        margin-bottom: 1rem;
+       line-height: 3rem;
        vertical-align: middle;
        font-family: 'AvenirNext LT Pro', sans-serif;
+       font-size: 1rem;
 
        @include responsiveness('tablet') {
         order:0;
@@ -86,7 +88,8 @@
         order:0;
         width: 50%;
         margin: 0px; 
-        height: 4rem;       
+        height: 4rem;  
+        line-height: 4rem;     
       }
     }
 
@@ -146,7 +149,22 @@
 
     @include responsiveness('tablet') {
     }
-    @include responsiveness('desktop') {         
+    @include responsiveness('desktop') { 
+        margin-left: 7rem;
+        margin-right: 7rem; 
+        
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;     
+    }
+
+    &__subdivision{
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {
+                        width: 65%; 
+        }
+        
     }
 }
 
@@ -154,6 +172,7 @@
     max-inline-size: 100%;
     width: 100%;
     aspect-ratio: 1.6;
+    
     @include responsiveness('tablet') {
     }
     @include responsiveness('desktop') {         
@@ -164,8 +183,12 @@
     margin: 1rem;
 
     @include responsiveness('tablet') {
+        margin-left: 3rem;
+        margin-right: 3rem;
     }
-    @include responsiveness('desktop') {         
+    @include responsiveness('desktop') {   
+        margin: 0px; 
+            
     }
     &__header{
         @include SizeLineWeight(1.5rem, 2rem, 700);
@@ -184,8 +207,13 @@
         justify-content: space-between;
 
         @include responsiveness('tablet') {
+            border-top: 0px;
+            padding-bottom: 1rem;
         }
-        @include responsiveness('desktop') {         
+        @include responsiveness('desktop') { 
+            border-top: 0px;
+            padding-bottom: 1rem;   
+            padding-right: 1.5rem;     
         }
     }
 
@@ -197,8 +225,18 @@
         justify-content: space-evenly;
 
         @include responsiveness('tablet') {
+            
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            flex: 0 0 35%;
+
         }
-        @include responsiveness('desktop') {         
+        @include responsiveness('desktop') {  
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            flex: 0 0 35%;       
         }
     
     }
@@ -207,8 +245,10 @@
         @include SizeLineWeight(0.8rem, 1.1rem, 700);
         margin-bottom: 0px;
         @include responsiveness('tablet') {
+            margin: 0px;
         }
-        @include responsiveness('desktop') {         
+        @include responsiveness('desktop') {
+            margin: 0px;         
         }
     }
 
@@ -216,8 +256,10 @@
        color: $colorS;
 
        @include responsiveness('tablet') {
+        margin: 0px;
     }
-    @include responsiveness('desktop') {         
+    @include responsiveness('desktop') {  
+        margin: 0px;       
     }
     
     }
@@ -230,8 +272,18 @@
         justify-content: space-evenly;
 
         @include responsiveness('tablet') {
+            
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            flex: 0 0 35%;
+
         }
-        @include responsiveness('desktop') {         
+        @include responsiveness('desktop') {   
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            flex: 0 0 35%;      
         }
     }
 
@@ -247,8 +299,16 @@
         align-items: center;
 
         @include responsiveness('tablet') {
+            margin: 0px;
+            
+            width: 40%;
+            align-items: end;
         }
         @include responsiveness('desktop') {         
+            margin: 0px;
+            width: 40%;
+            align-items: end;
+        
         }
     }
 
@@ -263,8 +323,17 @@
         align-items: center;
 
         @include responsiveness('tablet') {
+            margin: 0px;
+            width: 60%;
+            align-items: end;
+            background-position: center;
+            
         }
-        @include responsiveness('desktop') {         
+        @include responsiveness('desktop') {  
+            margin: 0px;
+            width: 60%;
+            align-items: end;
+            background-position: center;       
         }
     }
 
@@ -281,8 +350,14 @@
         color: $colorB;
 
         @include responsiveness('tablet') {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            width: 90%;
         }
-        @include responsiveness('desktop') {         
+        @include responsiveness('desktop') {  
+            margin-top: 2rem;
+            @include SizeLineWeight(0.9rem, 1.5rem, 400);
+            width: 90%;       
         }
     } 
 }
@@ -291,15 +366,23 @@
 .comment{
     margin: 1rem;
     @include responsiveness('tablet') {
+        margin-left: 3rem;
+        margin-right: 3rem;
     }
-    @include responsiveness('desktop') {         
+    @include responsiveness('desktop') {  
+         
+        margin: 0px; 
+        
+             
     }
     &__amount{
         @include SizeLineWeight(0.8rem, 1.1rem, 700);
 
         @include responsiveness('tablet') {
+            font-size: 0.9rem;
         }
-        @include responsiveness('desktop') {         
+        @include responsiveness('desktop') {  
+            font-size: 0.9rem;       
         }
     }
     &__subdivision{
@@ -311,12 +394,11 @@
         
         @include responsiveness('tablet') {
             justify-content: end;
+            
         }
         @include responsiveness('desktop') {
             justify-content: end;
-            padding-right: 12rem;
-            margin-left: 14rem;
-            flex: 1 0 0;
+            margin-left: 1rem;
         }}  
     &__image{
         border-radius: 50%;
@@ -325,11 +407,11 @@
         height: 3rem;
         margin-top: 3rem;
         @include responsiveness('tablet') {
-            margin-top: 3rem;
+            margin-top: 3.5rem;
         
         }
         @include responsiveness('desktop') {
-            margin-top: 3rem;
+            
             
         }
     }
@@ -342,11 +424,13 @@
         
         margin-left: 1rem;
         @include responsiveness('tablet') {
-            min-width: 83%;
+            flex-direction: row;
+            justify-content: space-between;
         }
         @include responsiveness('desktop') {
-            flex: 1 0 0;
-                   
+            flex-direction: row;
+            justify-content: space-between;
+            padding-right: 1.5rem;      
         }
     }
     &__form-Label{
@@ -357,8 +441,11 @@
         @include SizeLineWeight(0.8rem, 1.25rem, 600);
 
         @include responsiveness('tablet') {
+            
+            width: 100%;
         }
-        @include responsiveness('desktop') {         
+        @include responsiveness('desktop') {   
+            width: 100%;     
         }
        
     }
@@ -372,12 +459,16 @@
         font-family: 'AvenirNext LT Pro', sans-serif;
         padding-top: 1rem;
         @include responsiveness('tablet') {
-            
+            width: 70%;
             padding: 1rem;
+            
+            height: 3rem;
             
         }
         @include responsiveness('desktop') {
+            width: 70%;
             padding: 1rem;
+            height: 3rem;
         }
 
     }
@@ -401,12 +492,15 @@
 
         @include responsiveness('tablet') {
             width: 25%;
+            height: 3rem;
             align-self: end;
-            
+            margin: 0px;
         }
         @include responsiveness('desktop') {
-            width: 30%;
+            width: 25%;
+            height: 3rem;
             align-self: end;
+            margin: 0px;
             
         }
        
@@ -440,13 +534,16 @@
 
         @include responsiveness('tablet') {
             justify-content: end;
-            margin-left: 2rem;
+            
         }
         @include responsiveness('desktop') {
-            margin-right: 12rem;
             justify-content: end;
-            margin-left: 14rem;
-            flex: 1 0 0;
+            margin-left: 1rem;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        &--border {
+            border-bottom: 0px;
         }
     }
     &__user-Image{
@@ -479,7 +576,7 @@
             max-width: none;
             margin-left: 1rem;
             flex: 1 0 0;
-              
+            padding-right: 1.5rem;
         }
     }
 
@@ -512,9 +609,10 @@
 
         @include responsiveness('tablet') {
         }
-        @include responsiveness('desktop') {         
+        @include responsiveness('desktop') {    
+            @include SizeLineWeight(0.9rem, 1.5rem, 400);     
         }
-
+   
     }
 }
 
@@ -524,8 +622,14 @@
     flex-direction: column;
     
     @include responsiveness('tablet') {
+        margin-left: 3rem;
+        margin-right: 3rem;
     }
-    @include responsiveness('desktop') {         
+    @include responsiveness('desktop') {   
+        border-left: 2px $colorSecMer solid;
+        width:35%;  
+        margin: 0px; 
+        padding-left: 1rem; 
     }
 
     &__header{ 
@@ -557,8 +661,11 @@
         aspect-ratio: 1.4;
 
         @include responsiveness('tablet') {
+            width: 15%;
         }
-        @include responsiveness('desktop') {         
+        @include responsiveness('desktop') {  
+            width: 35%; 
+                
         }
     }
     &__Info{
@@ -569,8 +676,12 @@
         padding-left: 0.5rem;
 
         @include responsiveness('tablet') {
+            padding-left: 1rem;
+            width: 35%;
         }
-        @include responsiveness('desktop') {         
+        @include responsiveness('desktop') { 
+            padding-left: 1rem;
+            width: 100%;       
         }
     }
     &__Name{
@@ -579,8 +690,10 @@
         flex: 1 1 100%;
 
         @include responsiveness('tablet') {
+            font-size: 1rem;
         }
         @include responsiveness('desktop') {         
+            font-size: 1rem;
         }
     }
     &__Creator{
@@ -588,8 +701,10 @@
         margin: 0px;
 
         @include responsiveness('tablet') {
+            font-size: 1rem;
         }
-        @include responsiveness('desktop') {         
+        @include responsiveness('desktop') {   
+            font-size: 1rem;      
         }
     }
 }

@@ -20,7 +20,7 @@ function App() {
       <header className="header"> 
         <img src= {logo} alt='Brainflix logo' className='header__logo'/>
         <div className='header__functionalities'>
-        <textarea  className ='header__search' cols="30">
+        <textarea  className ='header__search' >
           Search 
         </textarea>
         {/* <input placeholder="Search" className ='header__search'/>  */}
@@ -29,10 +29,14 @@ function App() {
         </div>
       </header>
       {/* Ending header */}
-      <main className='main'>
-        {/* Big video Image */}
-        <video className='video-Image' controls poster='https://unit-3-project-api-0a5620414506.herokuapp.com/images/image0.jpg'>
+      
+       {/* Big video Image */}
+        
+       <video className='video-Image' controls poster='https://unit-3-project-api-0a5620414506.herokuapp.com/images/image0.jpg'>
         </video>
+        
+      <main className='main'>
+        <div className='main__subdivision' >   
         {/* Main Video information */}
         <section className='main-video'>
            <h2 className='main-video__header'> Tech Trends: The Future of Artificial Intelligence </h2>
@@ -65,7 +69,7 @@ function App() {
             <img src={mohan}  className="comment__image" alt="Mohan Muruge image" />
             <form action="" className="comment__form">
                 <label for="" className="comment__form-Label"> JOIN THE CONVERSATION </label>
-                <textarea name="nameInput" className="comment__form-Input" cols="50">
+                <textarea name="nameInput" className="comment__form-Input">
                  Add a new comment
                 </textarea>
                 <button className="comment__submit-Button"> <p className="comment__submit-Button--text"> COMMENT </p></button>
@@ -93,12 +97,12 @@ function App() {
               more tech insights </p>
             </div>
           </div>
-          <div  className = 'comment__user'>
+          <div  className = 'comment__user comment__user--border'>
             <img className = 'comment__user-Image'/>
             <div className = 'comment__user-Info'> 
               <p className = 'comment__user-Name'> Janice Rodriguez </p>
               <p className = 'comment__user-Date'>  8/9/2023 </p>
-              <p className = 'comment__user-Text'> Your channel is my go-to source for staying updated on tech trends. 
+              <p className = 'comment__user-Text '> Your channel is my go-to source for staying updated on tech trends. 
               The exploration of AI's future implications is both informative and exciting. Kudos on another excellent 
               video!</p>
             </div>
@@ -106,9 +110,9 @@ function App() {
           </div>
         </section>
         {/* Ending comments section */}
-
-        {/* Starting Side Videos section */}
-        <section className="side-videos">
+        </div> 
+           {/* Starting Side Videos section */}
+      <section className="side-videos">
           <h3 className='side-videos__header'> NEXT VIDEOS </h3>
           <div className='side-videos__Item'> 
             <img className='side-videos__Image' src='https://unit-3-project-api-0a5620414506.herokuapp.com/images/image1.jpg '/>
@@ -171,6 +175,7 @@ function App() {
         </section>
         {/* Ending Side Videos Section */}
       </main>
+   
 
 
     </body>

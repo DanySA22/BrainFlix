@@ -35,6 +35,7 @@ body {
   max-inline-size: 100%;
   border: 2px red solid;
   width: 50%;
+  line-height: 1.5rem;
 }
 .header__functionalities {
   display: flex;
@@ -52,6 +53,14 @@ body {
   order: 3;
   width: 100%;
   border: 2px red solid;
+  font-size: 0.7rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  background-color: #0095FF;
+  color: #FFFFFF;
+}
+.header__upload:hover {
+  background-color: #0065AD;
 }
 .header__image {
   border-radius: 50%;
@@ -78,6 +87,41 @@ body {
   background-image: url("./assets/Icons/search.svg");
 }
 
+.main-video__header {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+.main-video__info {
+  border-top: 1px #E1E1E1 solid;
+  border-bottom: 1px #E1E1E1 solid;
+}
+.main-video__author {
+  font-size: 0.8rem;
+  line-height: 1.1rem;
+  font-weight: 700;
+}
+.main-video__date {
+  color: #AFAFAF;
+}
+.main-video__views {
+  color: #AFAFAF;
+}
+.main-video__likes {
+  color: #AFAFAF;
+}
+.main-video__text {
+  font-size: 0.8rem;
+  line-height: 1.1rem;
+  font-weight: 400;
+  color: #323232;
+}
+
+.comment__amount {
+  font-size: 0.8rem;
+  line-height: 1.1rem;
+  font-weight: 700;
+}
 .comment__subdivision {
   display: flex;
   flex-direction: row;
@@ -118,7 +162,7 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  min-width: 70%;
+  width: 70%;
   margin-left: 1rem;
 }
 @media (max-width: 1280px) and (min-width: 768px) {
@@ -133,16 +177,18 @@ body {
 }
 .comment__form-Label {
   margin: 0px;
+  color: #AFAFAF;
   margin-bottom: 0.5rem;
   margin-top: 1.5rem;
-  font-size: 0.9rem;
-  line-height: 1.1rem;
-  font-weight: 400;
+  font-size: 0.7rem;
+  line-height: 1.25rem;
+  font-weight: 600;
 }
 .comment__form-Input {
   width: 100%;
   border-radius: 0.25rem;
   padding: 0.75rem;
+  background-color: #FAFAFA;
 }
 @media (max-width: 1280px) and (min-width: 768px) {
   .comment__form-Input {
@@ -156,12 +202,17 @@ body {
 }
 .comment__submit-Button {
   width: 100%;
+  color: #FFFFFF;
   text-align: center;
   padding-top: 0.7rem;
   padding-bottom: 0.7rem;
   border-radius: 0.2rem;
   border: 0px;
   margin-top: 1.5rem;
+  font-size: 0.7rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  background-color: #0095FF;
 }
 @media (max-width: 1280px) and (min-width: 768px) {
   .comment__submit-Button {
@@ -176,6 +227,8 @@ body {
   }
 }
 .comment__user {
+  border-top: 1px #E1E1E1 solid;
+  border-bottom: 1px #E1E1E1 solid;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -201,6 +254,7 @@ body {
   border-radius: 50%;
   width: 3rem;
   height: 3rem;
+  background-color: #E1E1E1;
 }
 .comment__user-Info {
   width: 70%;
@@ -226,7 +280,7 @@ body {
 }
 .comment__user-Name {
   margin: 0px;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   line-height: 1.1rem;
   font-weight: 700;
 }
@@ -242,6 +296,10 @@ body {
 }
 .comment__user-Date {
   margin: 0px;
+  color: #AFAFAF;
+  font-size: 0.8rem;
+  line-height: 1.1rem;
+  font-weight: 400;
 }
 @media (max-width: 1280px) and (min-width: 768px) {
   .comment__user-Date {
@@ -254,16 +312,23 @@ body {
   }
 }
 .comment__user-Text {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   line-height: 1.1rem;
   font-weight: 400;
   margin-bottom: 0px;
   min-width: 100%;
+  color: #323232;
 }
 
 .side-videos {
   display: flex;
   flex-direction: column;
+}
+.side-videos__header {
+  color: #AFAFAF;
+  font-size: 0.8rem;
+  line-height: 1.1rem;
+  font-weight: 600;
 }
 .side-videos__Item {
   display: flex;
@@ -280,4 +345,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.side-videos__Name {
+  font-size: 0.8rem;
+  line-height: 1.1rem;
+  font-weight: 700;
+}
+.side-videos__Creator {
+  color: #323232;
 }/*# sourceMappingURL=App.css.map */

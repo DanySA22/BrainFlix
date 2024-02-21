@@ -14,6 +14,7 @@
         max-inline-size: 100%;
         border: 2px red solid;
         width: 50%;
+        line-height: 1.5rem;
         
     }
     &__functionalities{
@@ -28,12 +29,19 @@
        background-image: url('./assets/Icons/search.svg');
        background-position: left center;
        background-repeat: no-repeat;
+       
     }
 
     &__upload{
         order: 3;
         width: 100%;
         border: 2px red solid;
+        @include SizeLineWeight(0.7rem, 1.25rem, 700);
+        background-color: $colorBlue;
+        color: $colorW;
+    }
+    &__upload:hover{
+        background-color: $colorSecBlue;
     }
 
     &__image{
@@ -67,30 +75,48 @@
 
 .main-video{
 
-    &__header{}
+    &__header{
+        @include SizeLineWeight(1.5rem, 2rem, 700);
+    }
 
-    &__info{}
+    &__info{
+        border-top: 1px $colorSecMer solid;
+        border-bottom: 1px $colorSecMer solid;
+    }
 
     &__info1{}
     
-    &__author{}
+    &__author{ 
+        @include SizeLineWeight(0.8rem, 1.1rem, 700);
+    }
 
-    &__date{}
+    &__date{
+       color: $colorS;
+    }
 
     &__info2{}
 
-    &__views{}
+    &__views{
+        color: $colorS;
+    }
 
-    &__likes{}
+    &__likes{
+        color: $colorS;
+    }
 
     &__details{}
     
-    &__text{} 
+    &__text{
+        @include SizeLineWeight(0.8rem, 1.1rem, 400);
+        color: $colorB;
+    } 
 }
 
 
 .comment{
-    &__amount{}
+    &__amount{
+        @include SizeLineWeight(0.8rem, 1.1rem, 700);
+    }
     &__subdivision{
         display: flex;
         flex-direction: row;
@@ -109,6 +135,7 @@
         }}
     &__image{
         border-radius: 50%;
+        
         width: 3rem;
         height: 3rem;
         margin-top: 2rem;
@@ -125,7 +152,7 @@
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        min-width: 70%;
+        width: 70%;
         
         margin-left: 1rem;
         @include responsiveness('tablet') {
@@ -138,10 +165,11 @@
     }
     &__form-Label{
         margin: 0px;
-        // color: $colorS;
+        color: $colorS;
         margin-bottom: 0.5rem;
         margin-top: 1.5rem;
-        @include SizeLineWeight(0.9rem, 1.1rem, 400);
+        @include SizeLineWeight(0.7rem, 1.25rem, 600);
+       
     }
     &__form-Input{
         // border: 1px solid $colorSecMer;
@@ -149,7 +177,7 @@
         width: 100%;
         border-radius: 0.25rem;
         padding: 0.75rem;
-        // background-color: $colorSecAl;
+        background-color: $colorSecAl;
 
         @include responsiveness('tablet') {
             
@@ -163,14 +191,15 @@
     }
     &__submit-Button{
         width: 100%;
-        // background-color: $colorB;
-        // color: $colorW;
+        color: $colorW;
         text-align: center;
         padding-top: 0.7rem;
         padding-bottom: 0.7rem;
         border-radius: 0.2rem;
         border: 0px;
         margin-top: 1.5rem;
+        @include SizeLineWeight(0.7rem, 1.25rem, 700);
+        background-color: $colorBlue;
         @include responsiveness('tablet') {
             width: 25%;
             align-self: end;
@@ -185,8 +214,8 @@
 
     &__display{}
     &__user{
-        // border-top: 1px $colorSecMer solid;
-        // border-bottom: 1px $colorSecMer solid;
+        border-top: 1px $colorSecMer solid;
+        border-bottom: 1px $colorSecMer solid;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -210,7 +239,7 @@
         border-radius: 50%;
         width: 3rem;
         height: 3rem;
-        // background-color: $colorSecMer;
+        background-color: $colorSecMer;
         
     }
     &__user-Info{
@@ -237,7 +266,7 @@
 
     &__user-Name{
         margin: 0px;
-        @include SizeLineWeight(0.7rem, 1.1rem, 700);
+        @include SizeLineWeight(0.8rem, 1.1rem, 700);
         @include responsiveness('tablet') {
             font-size: 0.9rem;
         }
@@ -247,9 +276,8 @@
     }
     &__user-Date{
         margin: 0px;
-        // color: $colorS;
-        // @include SizeLineWeight(0.7rem, 1.1rem, 400);
-        
+        color: $colorS;
+        @include SizeLineWeight(0.8rem, 1.1rem, 400);
         @include responsiveness('tablet') {
             font-size: 0.9rem;
         }
@@ -258,9 +286,10 @@
         }
     }
     &__user-Text{
-        @include SizeLineWeight(0.9rem, 1.1rem, 400);
+        @include SizeLineWeight(0.8rem, 1.1rem, 400);
         margin-bottom: 0px;
         min-width: 100%;
+        color: $colorB;
 
     }
 }
@@ -269,7 +298,11 @@
     display: flex;
     flex-direction: column;
     
-    &__header{}
+    &__header{ 
+        color: $colorS;
+        @include SizeLineWeight(0.8rem, 1.1rem, 600);
+    
+    }
     &__Item{
         display: flex;
         flex-direction: row;
@@ -287,6 +320,10 @@
         flex-direction: column;
         justify-content: space-between;
     }
-    &__Name{}
-    &__Creator{}
+    &__Name{
+        @include SizeLineWeight(0.8rem, 1.1rem, 700);
+    }
+    &__Creator{
+        color: $colorB;
+    }
 }

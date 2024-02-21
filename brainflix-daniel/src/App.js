@@ -13,7 +13,8 @@ import search from './assets/Icons/search.svg';
 import upload from './assets/Icons/upload.svg';
 import volume_off from './assets/Icons/volume_off.svg';
 import volume_up from './assets/Icons/volume_up.svg';
-
+import videoDetails from './data/video-details.json'
+import videos from './data/videos.json'
 
 import './App.scss';
 
@@ -73,8 +74,10 @@ function App() {
         <div className="comment__subdivision">
             <img src={mohan}  className="comment__image" alt="Mohan Muruge image" />
             <form action="" className="comment__form">
-                <label for="" className="comment__form-Label"> Join the conversation </label>
-                <input type="text" name="nameInput" className="comment__form-Input" placeholder="Add a new comment"/>
+                <label for="" className="comment__form-Label"> JOIN THE CONVERSATION </label>
+                <textarea name="nameInput" className="comment__form-Input" cols="50">
+                 Add a new comment
+                </textarea>
                 <button class="comment__submit-Button"> <img src= {add_comment}/>COMMENT</button>
             </form> 
           </div >
@@ -116,7 +119,7 @@ function App() {
 
         {/* Starting Side Videos section */}
         <section className="side-videos">
-          <h3 className='side-videos__header'> Next Videos </h3>
+          <h3 className='side-videos__header'> NEXT VIDEOS </h3>
           <div className='side-videos__Item'> 
             <img className='side-videos__Image' src='https://unit-3-project-api-0a5620414506.herokuapp.com/images/image1.jpg '/>
             <div className='side-videos__Info'>

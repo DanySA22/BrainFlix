@@ -6,13 +6,13 @@
 .header  {
     display: flex;
     flex-direction: column;
-    border: 2px red solid;
+    
     flex-wrap: wrap;
-    align-content: center;
+    align-items: center;
     margin: 1rem;
     &__logo{
         max-inline-size: 100%;
-        border: 2px red solid;
+        
         width: 50%;
         line-height: 1.5rem;
         
@@ -20,12 +20,13 @@
     &__functionalities{
        display: flex;
        flex-direction: row;
-
+       width: 100%;
+       flex-wrap: wrap;
     }
     &__search{
        order: 1;
-       width: 100%;
-       border: 2px red solid;
+       width: 80%;
+       border: 2px blue solid;
        background-image: url('./assets/Icons/search.svg');
        background-position: left center;
        background-repeat: no-repeat;
@@ -35,10 +36,17 @@
     &__upload{
         order: 3;
         width: 100%;
-        border: 2px red solid;
-        @include SizeLineWeight(0.7rem, 1.25rem, 700);
+        
+        @include SizeLineWeight(0.7rem, 3rem, 700);
         background-color: $colorBlue;
         color: $colorW;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5%;
+        border: 0px;
+        
     }
     &__upload:hover{
         background-color: $colorSecBlue;
@@ -74,7 +82,7 @@
 }
 
 .main-video{
-
+    margin: 1rem;
     &__header{
         @include SizeLineWeight(1.5rem, 2rem, 700);
     }
@@ -82,22 +90,41 @@
     &__info{
         border-top: 1px $colorSecMer solid;
         border-bottom: 1px $colorSecMer solid;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
 
-    &__info1{}
+    &__info1{
+        
+        flex: 1 1 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    
+    }
     
     &__author{ 
         @include SizeLineWeight(0.8rem, 1.1rem, 700);
+        margin-bottom: 0px;
     }
 
     &__date{
        color: $colorS;
+    
     }
 
-    &__info2{}
+    &__info2{
+       
+        flex: 1 1 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
 
     &__views{
         color: $colorS;
+        margin-bottom: 0px;
     }
 
     &__likes{
@@ -114,6 +141,7 @@
 
 
 .comment{
+    margin: 1rem;
     &__amount{
         @include SizeLineWeight(0.8rem, 1.1rem, 700);
     }
@@ -152,7 +180,8 @@
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        width: 70%;
+        // width: 76%;
+        flex: 1 1 76%;
         
         margin-left: 1rem;
         @include responsiveness('tablet') {
@@ -200,6 +229,9 @@
         margin-top: 1.5rem;
         @include SizeLineWeight(0.7rem, 1.25rem, 700);
         background-color: $colorBlue;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         @include responsiveness('tablet') {
             width: 25%;
             align-self: end;
@@ -208,6 +240,17 @@
         @include responsiveness('desktop') {
             width: 30%;
             align-self: end;
+            
+        }
+        &--add{
+            
+             
+        }
+
+        &--text{
+            margin: 0px;
+            text-align: center;
+           
             
         }
     }
@@ -243,7 +286,7 @@
         
     }
     &__user-Info{
-        width: 70%;
+        flex: 1 1 76%;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -295,8 +338,10 @@
 }
 
 .side-videos{
+    margin: 1rem;
     display: flex;
     flex-direction: column;
+    
     
     &__header{ 
         color: $colorS;
@@ -306,24 +351,31 @@
     &__Item{
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: start;
+        
+        margin-bottom: 1rem;
     }
     &__Image{
         border-radius: 10%;
         max-inline-size: 100%;
-        // block-size: auto;
-        width: 30%;
-        aspect-ratio: 1.6;
+        block-size: auto;
+        width: 40%;
+        aspect-ratio: 1.4;
     }
     &__Info{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        align-items: start;
+        padding-left: 0.5rem;
     }
     &__Name{
-        @include SizeLineWeight(0.8rem, 1.1rem, 700);
+        @include SizeLineWeight(0.8rem, 1.3rem, 700);
+        margin: 0px;
+        flex: 1 1 100%;
     }
     &__Creator{
         color: $colorB;
+        margin: 0px;
     }
 }

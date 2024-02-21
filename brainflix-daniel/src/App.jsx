@@ -23,26 +23,21 @@ function App() {
     <body> 
       {/* Starting header */}
       <header className="header"> 
-        {/* In this first div I will add all the icons related
-        images  */}
-        {/* <div> 
-          <img  src={play}  alt="Brainflix video icons"/>    
-          <img/>  
-          <img/>  
-          <img/>   
-        </div> */}
         <img src= {logo} alt='Brainflix logo' className='header__logo'/>
         <div className='header__functionalities'>
-        <input placeholder="Search" className ='header__search'/> 
-        <button className ='header__upload'> <img src= {upload}/> Upload </button>
+        <textarea  className ='header__search' cols="30" rows="3">
+          Search
+        </textarea>
+        {/* <input placeholder="Search" className ='header__search'/>  */}
+        <button className ='header__upload'> <img src= {upload}/> UPLOAD </button>
         <img src={mohan} alt= "Mohan's Image" className='header__image'/>
         </div>
       </header>
       {/* Ending header */}
       <main className='main'>
         {/* Big video Image */}
-        <img className='video-Image' src='https://unit-3-project-api-0a5620414506.herokuapp.com/images/image0.jpg'/>  
-         
+        <video className='video-Image' controls poster='https://unit-3-project-api-0a5620414506.herokuapp.com/images/image0.jpg'>
+        </video>
         {/* Main Video information */}
         <section className='main-video'>
            <h2 className='main-video__header'> Tech Trends: The Future of Artificial Intelligence </h2>
@@ -78,7 +73,7 @@ function App() {
                 <textarea name="nameInput" className="comment__form-Input" cols="50">
                  Add a new comment
                 </textarea>
-                <button class="comment__submit-Button"> <img src= {add_comment}/>COMMENT</button>
+                <button className="comment__submit-Button"> <img className="comment__submit-Button--add"src= {add_comment}/> <p className="comment__submit-Button--text"> COMMENT </p></button>
             </form> 
           </div >
           <div className = 'comment__display'>

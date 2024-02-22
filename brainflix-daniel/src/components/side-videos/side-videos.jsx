@@ -1,6 +1,8 @@
 import './side-videos.scss'
+import mainData from '../../data/video-details.json'
+import sideData from '../../data/videos.json'
 
-function SideVideos() {
+function SideVideos(props) {
     return(
        <section className="side-videos">
         {/* Starting Side Videos section */}

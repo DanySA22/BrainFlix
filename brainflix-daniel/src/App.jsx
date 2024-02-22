@@ -1,14 +1,21 @@
+import {useState} from 'react'
 import logo from './assets/Logo/BrainFlix-logo.svg';
 import mohan from './assets/images/Mohan-muruge.jpg';
 import './App.scss';
 import SideVideos from './components/side-videos/side-videos';
 import Navigation from './components/nav/nav';
+import mainData from './data/video-details.json'
+import sideData from './data/videos.json'
+
 function App() {
+  const [dataDetails, setDataDetails] = useState(mainData)
+  const [data, setData] = useState(sideData)
+  
   return (
     <body> 
       <Navigation/>
        {/* Big video Image */}
-        
+       
        <video className='video-Image' controls poster='https://unit-3-project-api-0a5620414506.herokuapp.com/images/image0.jpg'>
         </video>
         
@@ -89,7 +96,7 @@ function App() {
         
         {/* Ending comments section */}
         </div> 
-        <SideVideos/>
+        <SideVideos data={data} dataChange={setData} />
       </main>
    
 

@@ -1,35 +1,12 @@
 import logo from './assets/Logo/BrainFlix-logo.svg';
-import mohan from './assets/images/Mohan-muruge.jpg'
-import close_fullscreen from './assets/Icons/close_fullscreen.svg';
-import fullscreen from './assets/Icons/fullscreen.svg';
-import pause from './assets/Icons/pause.svg';
-import play from './assets/Icons/play.svg';
-import publish from './assets/Icons/publish.svg';
-import scrub from './assets/Icons/scrub.svg';
-import volume_off from './assets/Icons/volume_off.svg';
-import volume_up from './assets/Icons/volume_up.svg';
-import videoDetails from './data/video-details.json'
-import videos from './data/videos.json'
-
+import mohan from './assets/images/Mohan-muruge.jpg';
 import './App.scss';
-
+import SideVideos from './components/side-videos/side-videos';
+import Navigation from './components/nav/nav';
 function App() {
   return (
     <body> 
-      {/* Starting header */}
-      <header className="header"> 
-        <img src= {logo} alt='Brainflix logo' className='header__logo'/>
-        <div className='header__functionalities'>
-        <textarea  className ='header__search' >
-          Search 
-        </textarea>
-        {/* <input placeholder="Search" className ='header__search'/>  */}
-        <button className ='header__upload'>  UPLOAD </button>
-        <img src={mohan} alt= "Mohan's Image" className='header__image'/>
-        </div>
-      </header>
-      {/* Ending header */}
-      
+      <Navigation/>
        {/* Big video Image */}
         
        <video className='video-Image' controls poster='https://unit-3-project-api-0a5620414506.herokuapp.com/images/image0.jpg'>
@@ -109,71 +86,10 @@ function App() {
           </div>
           </div>
         </section>
+        
         {/* Ending comments section */}
         </div> 
-           {/* Starting Side Videos section */}
-      <section className="side-videos">
-          <h3 className='side-videos__header'> NEXT VIDEOS </h3>
-          <div className='side-videos__Item'> 
-            <img className='side-videos__Image' src='https://unit-3-project-api-0a5620414506.herokuapp.com/images/image1.jpg '/>
-            <div className='side-videos__Info'>
-              <p className='side-videos__Name'> Exploring Cities of Europe </p>
-              <p className='side-videos__Creator'> Ryan Hernandez </p>
-            </div>
-          </div>
-          <div className='side-videos__Item'> 
-            <img className='side-videos__Image' src='https://unit-3-project-api-0a5620414506.herokuapp.com/images/image2.jpg'/>
-            <div className='side-videos__Info'>
-              <p className='side-videos__Name'> Molecular Gastronomy: Secrets Unveiled </p>
-              <p className='side-videos__Creator'> Cornelia Currey </p>
-            </div>
-          </div>
-          <div className='side-videos__Item'> 
-            <img className='side-videos__Image' src='https://unit-3-project-api-0a5620414506.herokuapp.com/images/image3.jpg'/>
-            <div className='side-videos__Info'>
-              <p className='side-videos__Name'> Embracing Serenity in Everyday Moments</p>
-              <p className='side-videos__Creator'> Dalia Bennu </p> 
-              </div>
-          </div>
-              
-          <div className='side-videos__Item'> 
-            <img className='side-videos__Image' src= 'https://unit-3-project-api-0a5620414506.herokuapp.com/images/image4.jpg'/>
-            <div className='side-videos__Info'>
-              <p className='side-videos__Name'> Beyond the Horizon </p>
-              <p className='side-videos__Creator'> Emmett Wilson </p>
-             </div>
-          </div>
-
-          <div className='side-videos__Item'> 
-            <img className='side-videos__Image' src='https://unit-3-project-api-0a5620414506.herokuapp.com/images/image5.jpg'/>
-            <div className='side-videos__Info'>
-              <p className='side-videos__Name'> Wild Rhythms: Harmony of African Fauna </p>
-              <p className='side-videos__Creator'> Priscilla Romani </p>
-            </div>
-          </div>
-          <div className='side-videos__Item'> 
-            <img className='side-videos__Image' src='https://unit-3-project-api-0a5620414506.herokuapp.com/images/image6.jpg'/>
-            <div className='side-videos__Info'>
-              <p className='side-videos__Name'> Discovering the Night Sky </p>
-              <p className='side-videos__Creator'> Sabine Faucher </p>
-            </div>
-          </div>
-          <div className='side-videos__Item'> 
-            <img className='side-videos__Image' src='https://unit-3-project-api-0a5620414506.herokuapp.com/images/image7.jpg'/>
-            <div className='side-videos__Info'>
-              <p className='side-videos__Name'> Art Unveiled </p>
-              <p className='side-videos__Creator'> Theodore Bernard </p>
-            </div>
-          </div>
-          <div className='side-videos__Item'> 
-            <img className='side-videos__Image' src='https://unit-3-project-api-0a5620414506.herokuapp.com/images/image8.jpg'/>
-            <div className='side-videos__Info'>
-              <p className='side-videos__Name'> A Journey Through Time and Technology </p>
-              <p className='side-videos__Creator'> Farah Mikhail </p>
-            </div>
-          </div>
-        </section>
-        {/* Ending Side Videos Section */}
+        <SideVideos/>
       </main>
    
 

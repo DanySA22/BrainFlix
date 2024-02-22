@@ -1,0 +1,99 @@
+@use '../../styles/partials/global' as *;
+@use '../../styles/partials/variables' as *;   
+@use '../../styles/partials/fonts' as *;
+@import '../../styles/partials/mixins';
+
+
+
+.side-videos{
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    
+    @include responsiveness('tablet') {
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+    @include responsiveness('desktop') {   
+        border-left: 2px $colorSecMer solid;
+        width:35%;  
+        margin: 0px; 
+        padding-left: 1rem; 
+    }
+
+    &__header{ 
+        color: $colorS;
+        @include SizeLineWeight(0.8rem, 1.1rem, 600);
+
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
+    
+    }
+    &__Item{
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        margin-bottom: 1rem;
+
+        @include responsiveness('tablet') {
+        }
+        @include responsiveness('desktop') {         
+        }
+    }
+    &__Image{
+        border-radius: 10%;
+        max-inline-size: 100%;
+        block-size: auto;
+        width: 40%;
+        aspect-ratio: 1.4;
+
+        @include responsiveness('tablet') {
+            width: 15%;
+        }
+        @include responsiveness('desktop') {  
+            width: 35%; 
+                
+        }
+    }
+    &__Info{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+        padding-left: 0.5rem;
+
+        @include responsiveness('tablet') {
+            padding-left: 1rem;
+            width: 35%;
+        }
+        @include responsiveness('desktop') { 
+            padding-left: 1rem;
+            width: 100%;       
+        }
+    }
+    &__Name{
+        @include SizeLineWeight(0.8rem, 1.3rem, 700);
+        margin: 0px;
+        flex: 1 1 100%;
+
+        @include responsiveness('tablet') {
+            font-size: 1rem;
+        }
+        @include responsiveness('desktop') {         
+            font-size: 1rem;
+        }
+    }
+    &__Creator{
+        color: $colorB;
+        margin: 0px;
+
+        @include responsiveness('tablet') {
+            font-size: 1rem;
+        }
+        @include responsiveness('desktop') {   
+            font-size: 1rem;      
+        }
+    }
+}

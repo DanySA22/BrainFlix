@@ -8,10 +8,9 @@ function Navigation ()  {
       <header className="header"> 
       <img src= {logo} alt='Brainflix logo' className='header__logo'/>
       <div className='header__functionalities'>
-      <textarea  className ='header__search' >
-        Search 
+      <textarea  defaultValue={'Search'} className ='header__search' >
+         
       </textarea>
-      {/* <input placeholder="Search" className ='header__search'/>  */}
       <button className ='header__upload'>  UPLOAD </button>
       <img src={mohan} alt= "Mohan's Image" className='header__image'/>
       </div>

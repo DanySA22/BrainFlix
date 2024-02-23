@@ -10,37 +10,40 @@ import sideData from './data/videos.json'
 function App() {
   const [dataDetails, setDataDetails] = useState(mainData)
   const [data, setData] = useState(sideData)
-  const dataMainDetails = dataDetails
+  const [identification, setIdentification] = useState('84e96018-4022-434e-80bf-000ce4cd12b8')
   
-  const videoMain = dataMainDetails.filter((dataMainDetail) => (dataMainDetail.id == '84e96018-4022-434e-80bf-000ce4cd12b8')).map((dataMainDetail) => (
-    <video className='video-Image' controls poster= {dataMainDetail.image} key={dataMainDetail.id}>
+  const updateIdentification = (event, text) => {
+    setIdentification(text)
+  }
+  const videoMain = dataDetails.filter((dataDetail) => (dataDetail.id == identification)).map((dataDetail) => (
+    <video className='video-Image' controls poster= {dataDetail.image} key={dataDetail.id}>
     </video>
   ))
 
-  const listDataMain = dataMainDetails.filter((dataMainDetail) => (dataMainDetail.id == '84e96018-4022-434e-80bf-000ce4cd12b8')).map((dataMainDetail) => (
-    <section className='main-video' key={dataMainDetail.id}>
-    <h2 className='main-video__header'> {dataMainDetail.title} </h2>
+  const listDataMain = dataDetails.filter((dataDetail) => (dataDetail.id == identification)).map((dataDetail) => (
+    <section className='main-video' key={dataDetail.id}>
+    <h2 className='main-video__header'> {dataDetail.title} </h2>
     <div className='main-video__info'>
     <div className='main-video__info1'> 
-    <p className='main-video__author'> <span>By</span> {dataMainDetail.channel}</p>
-    <p className='main-video__date'> {dataMainDetail.timestamp}  </p> 
+    <p className='main-video__author'> <span>By</span> {dataDetail.channel}</p>
+    <p className='main-video__date'> {dataDetail.timestamp}  </p> 
     </div> 
     <div className='main-video__info2'>
-     <p className='main-video__views'> {dataMainDetail.views} </p>
-     <p className='main-video__likes'> {dataMainDetail.likes} </p>
+     <p className='main-video__views'> {dataDetail.views} </p>
+     <p className='main-video__likes'> {dataDetail.likes} </p>
     </div> 
     </div> 
     <div className='main-video__details'>
     <p className='main-video__text'>
-    {dataMainDetail.description}
+    {dataDetail.description}
     </p> 
     </div> 
  </section>
   ))
-console.log(dataMainDetails[0].comments[1].name)
- const commentMain = dataMainDetails.filter((dataMainDetail) => (dataMainDetail.id == '84e96018-4022-434e-80bf-000ce4cd12b8')).map((dataMainDetail) => (
-  <section className='comment' key={dataMainDetail.id}>
-  <h2 className="comment__amount"> {dataMainDetail.comments.length} Comments </h2>
+console.log(dataDetails[0].comments[1].name)
+ const commentMain = dataDetails.filter((dataDetail) => (dataDetail.id == identification)).map((dataDetail) => (
+  <section className='comment' key={dataDetail.id}>
+  <h2 className="comment__amount"> {dataDetail.comments.length} Comments </h2>
   <div className="comment__subdivision">
       <img src={mohan}  className="comment__image" alt="Mohan Muruge image" />
       <form action="" className="comment__form">
@@ -50,90 +53,37 @@ console.log(dataMainDetails[0].comments[1].name)
           </textarea>
           <button className="comment__submit-Button"> <p className="comment__submit-Button--text"> COMMENT </p></button>
       </form> 
-    </div >
+    </div>
+   
     <div className = 'comment__display'>
-    <div  className = 'comment__user'>
+    { dataDetail.comments.map((commentItem) =>
+    <div  className = 'comment__user' key={commentItem.id}>
       <img className = 'comment__user-Image'/>
       <div className = 'comment__user-Info'> 
-        <p className = 'comment__user-Name'> Noah Duncan </p>
-        <p className = 'comment__user-Date'>  8/11/2023 </p>
+        <p className = 'comment__user-Name'> {commentItem.name} </p>
+        <p className = 'comment__user-Date'>  {commentItem.timestamp} </p>
         <p className = 'comment__user-Text'> 
-        Your insights into the future of AI are enlightening! The intersection of technology 
-        and ethics is particularly thought-provoking. Keep us updated on the tech front!
+        {commentItem.comment}
         </p>
       </div>
     </div>
+    )}
     </div>
   </section>
   ))
   return (
     <> 
       <Navigation/> 
-       {/* Big video Image */}
-       {videoMain}
-       
+      {videoMain}
       <main className='main'>
         <div className='main__subdivision' >   
-        {/* Main Video information */}
         {listDataMain}
-       
-        {/* Ending Main Video Information */}
-
-        {/* Starting Comments section */}
-        <section className='comment'>
-        <h2 className="comment__amount"> 3 Comments </h2>
-        <div className="comment__subdivision">
-            <img src={mohan}  className="comment__image" alt="Mohan Muruge image" />
-            <form action="" className="comment__form">
-                <label className="comment__form-Label"> JOIN THE CONVERSATION </label>
-                <textarea name="nameInput" className="comment__form-Input">
-                 Add a new comment
-                </textarea>
-                <button className="comment__submit-Button"> <p className="comment__submit-Button--text"> COMMENT </p></button>
-            </form> 
-          </div >
-          <div className = 'comment__display'>
-          <div  className = 'comment__user'>
-            <img className = 'comment__user-Image'/>
-            <div className = 'comment__user-Info'> 
-              <p className = 'comment__user-Name'> Noah Duncan </p>
-              <p className = 'comment__user-Date'>  8/11/2023 </p>
-              <p className = 'comment__user-Text'> 
-              Your insights into the future of AI are enlightening! The intersection of technology 
-              and ethics is particularly thought-provoking. Keep us updated on the tech front!
-              </p>
-            </div>
-          </div>
-          <div  className = 'comment__user'>
-            <img className = 'comment__user-Image'/>
-            <div className = 'comment__user-Info'> 
-              <p className = 'comment__user-Name'> Terry Wong </p>
-              <p className = 'comment__user-Date'>  8/10/2023 </p>
-              <p className = 'comment__user-Text'> This video is a fantastic overview of the AI landscape. 
-              Your ability to distill complex concepts into digestible content is impressive. Can t wait for 
-              more tech insights </p>
-            </div>
-          </div>
-          <div  className = 'comment__user comment__user--border'>
-            <img className = 'comment__user-Image'/>
-            <div className = 'comment__user-Info'> 
-              <p className = 'comment__user-Name'> Janice Rodriguez </p>
-              <p className = 'comment__user-Date'>  8/9/2023 </p>
-              <p className = 'comment__user-Text '> Your channel is my go-to source for staying updated on tech trends. 
-              The exploration of AI's future implications is both informative and exciting. Kudos on another excellent 
-              video!</p>
-            </div>
-          </div>
-          </div>
-        </section>
+            
+        {commentMain}
         
-        {/* Ending comments section */}
-        </div> 
-         <SideVideos data={data} dataChange={setData} /> 
+      </div> 
+      <SideVideos data={data} dataChange={setData} idChange = {setIdentification}  identifier = {identification} test = {updateIdentification} /> 
       </main>
-   
-
-
     </>
   )
 }

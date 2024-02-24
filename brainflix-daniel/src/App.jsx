@@ -9,27 +9,27 @@ import sideData from './data/videos.json'
 
 function App() {
   // Defining states based on the two file.json
-  const [dataDetails, setDataDetails] = useState(mainData)
+  const [dataDetails, setDataDetails] = useState(mainData[0])
   const [data, setData] = useState(sideData)
-  const [identification, setIdentification] = useState(dataDetails[0].id)
  
-  // Creating callback prop function that will be triggered by 
-  //event handler on child component. This function include a setter function to modificate
-  // the state of the id used for filter by the selected element id.
+
+  // Creating callback prop function that will be triggered by event handler on child component. This function include dataDetails setter function 
+  //to modificate his default state value.
   const updateIdentification = (event, text) => {
-    setIdentification(text)
+     setDataDetails(mainData.find((element) => element.id == text))
   }
+
   return (
     <> 
       <Navigation/> 
-      <VideoImage dataDetails = {dataDetails} identification = {identification}/>
+      <VideoImage dataDetails = {dataDetails}/>
       <main className='main'>
         <div className='main__subdivision' >   
         
-        <MainVideo dataDetails = {dataDetails} identification = {identification} dataChange={setDataDetails} />
+      <MainVideo dataDetails = {dataDetails}/>
                
       </div> 
-      <SideVideos data={data} dataChange={setData} identification = {identification} updateIdentification = {updateIdentification} /> 
+      <SideVideos data={data} dataDetails = {dataDetails} updateIdentification = {updateIdentification} /> 
       </main>
     </>
   )

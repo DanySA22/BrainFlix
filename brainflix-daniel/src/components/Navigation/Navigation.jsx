@@ -4,7 +4,6 @@ import mohan from '../../assets/images/Mohan-muruge.jpg';
 
 function Navigation ()  {
     return (
-       
       <header className="header"> 
       <img src= {logo} alt='Brainflix logo' className='header__logo'/>
       <div className='header__functionalities'>

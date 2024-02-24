@@ -1,9 +1,9 @@
 import './SideVideos.scss'
 
-function SideVideos({data, identification, updateIdentification}) {
+function SideVideos({data, dataDetails , updateIdentification}) {
   const dataElements = data
-  const listData = dataElements.filter((dataElement) => (dataElement.id !== identification)).map((dataElement) =>(
-    <div className='side-videos__Item' key={dataElement.id} onClick={event => updateIdentification(event, dataElement.id)}> 
+  const listData = dataElements.filter((dataElement) => (dataElement.id !== dataDetails.id)).map((dataElement) =>(
+    <div className='side-videos__Item' key={dataElement.id} onClick={event => updateIdentification(event, dataElement.id) }> 
     <img className='side-videos__Image' src= {dataElement.image}/>
     <div className='side-videos__Info'>
       <p className='side-videos__Name'> {dataElement.title} </p>

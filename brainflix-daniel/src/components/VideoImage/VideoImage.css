@@ -23,17 +23,24 @@ body {
   src: url("../../assets/fonts/AvenirNextLTPro-Bold.otf");
   font-weight: 700;
 }
-@media (min-width: 1280px) {
-  .main {
-    margin-left: 7rem;
-    margin-right: 7rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.video-container {
+  display: flex;
+  justify-content: center;
+  background-color: #000000;
+}
+.video-container__Image {
+  max-inline-size: 100%;
+  width: 100%;
+  aspect-ratio: 1.77;
+  background-color: #000000;
+}
+@media (max-width: 1279.5px) and (min-width: 768px) {
+  .video-container__Image {
+    max-inline-size: 88%;
   }
 }
 @media (min-width: 1280px) {
-  .main__subdivision {
-    width: 65%;
+  .video-container__Image {
+    max-inline-size: 70%;
   }
-}/*# sourceMappingURL=App.css.map */
+}/*# sourceMappingURL=VideoImage.css.map */

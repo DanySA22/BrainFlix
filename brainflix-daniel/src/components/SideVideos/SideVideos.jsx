@@ -1,11 +1,9 @@
-import './side-videos.scss'
-import mainData from '../../data/video-details.json'
-import sideData from '../../data/videos.json'
+import './SideVideos.scss'
 
-function SideVideos({data, idChange, identifier, test}) {
+function SideVideos({data, identification, updateIdentification}) {
   const dataElements = data
-  const listData = dataElements.filter((dataElement) => (dataElement.id !== identifier)).map((dataElement) =>(
-    <div className='side-videos__Item' key={dataElement.id} onClick={event => test(event, dataElement.id)}> 
+  const listData = dataElements.filter((dataElement) => (dataElement.id !== identification)).map((dataElement) =>(
+    <div className='side-videos__Item' key={dataElement.id} onClick={event => updateIdentification(event, dataElement.id)}> 
     <img className='side-videos__Image' src= {dataElement.image}/>
     <div className='side-videos__Info'>
       <p className='side-videos__Name'> {dataElement.title} </p>

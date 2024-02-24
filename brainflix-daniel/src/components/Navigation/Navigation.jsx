@@ -1,4 +1,4 @@
-import './nav.scss'
+import './Navigation.scss'
 import logo from '../../assets/Logo/BrainFlix-logo.svg';
 import mohan from '../../assets/images/Mohan-muruge.jpg';
 

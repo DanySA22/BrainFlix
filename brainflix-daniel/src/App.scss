@@ -22,24 +22,7 @@
     }
 }
 
-.video-container{
-    display: flex;
-    justify-content: center;
-    background-color: $colorSecDark;
-    
-    &__Image{
-        max-inline-size: 100%;
-        width: 100%;
-        aspect-ratio: 1.77;
-        background-color: $colorSecDark;
-        @include responsiveness('tablet') {
-            max-inline-size: 88%;
-        }
-        @include responsiveness('desktop') {  
-            max-inline-size: 70%;       
-        }
-       }
-}
+
 
 
 

@@ -1,7 +1,7 @@
 import './MainVideo.scss'
+import mohan from '../../assets/images/Mohan-muruge.jpg';
 
-
-function MainVideo() {
+function MainVideo({dataDetails, identification}) {
     const listDataMain = dataDetails.filter((dataDetail) => (dataDetail.id == identification)).map((dataDetail) => (
         <section className='main-video' key={dataDetail.id}>
         <h2 className='main-video__header'> {dataDetail.title} </h2>
@@ -56,6 +56,7 @@ function MainVideo() {
     return (
         <>
         {listDataMain}
+        {commentMain}
         </>
 
       )

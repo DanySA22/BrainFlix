@@ -1,3 +1,10 @@
+@use '../../styles/partials/global' as *;
+@use '../../styles/partials/variables' as *;   
+@use '../../styles/partials/fonts' as *;
+@import '../../styles/partials/mixins';
+
+
+// Start of main video details section 
 .main-video{
     margin: 1rem;
 
@@ -109,7 +116,7 @@
     }
 
     &__views{
-        background-image: url('./assets/Icons/views.svg');
+        background-image: url('../../assets/Icons/views.svg');
         background-position: 4% center;
         background-repeat: no-repeat;
         color: $colorS;
@@ -133,7 +140,7 @@
 
     &__likes{
         color: $colorS;
-        background-image: url('./assets/Icons/likes.svg');
+        background-image: url('../../assets/Icons/likes.svg');
         background-position: 4% center;
         background-repeat: no-repeat;
         display: flex;
@@ -174,7 +181,9 @@
     } 
 }
 
+// End of main video details section 
 
+// Start of comment section 
 .comment{
     margin: 1rem;
     @include responsiveness('tablet') {
@@ -290,7 +299,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        background-image: url('./assets/Icons/add_comment.svg');
+        background-image: url('../../assets/Icons/add_comment.svg');
         background-position: 4% center;
         background-repeat: no-repeat;
 
@@ -407,3 +416,5 @@
    
     }
 }
+
+// End of comment section 

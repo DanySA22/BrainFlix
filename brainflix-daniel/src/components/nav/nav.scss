@@ -12,10 +12,8 @@
     margin: 1rem;
 
     @include responsiveness('tablet') {
-        
         flex-direction: row;
         justify-content: space-between;
-       
         margin-left: 3rem;
         margin-right: 3rem;
     }
@@ -35,12 +33,12 @@
         @include responsiveness('tablet') {
             
             width: 18%;
-            margin: 0px;
+            margin: 0;
         }
         @include responsiveness('desktop') {
              
             width: 15%;
-            margin: 0px;
+            margin: 0;
 
         }
     }
@@ -52,11 +50,9 @@
        flex-wrap: wrap;
 
        @include responsiveness('tablet') {
-        
         width: 70%;
     }
     @include responsiveness('desktop') {    
-         
         width: 50%;     
     }
     }
@@ -81,13 +77,13 @@
        @include responsiveness('tablet') {
         order:0;
         width: 50%;
-        margin: 0px;
+        margin: 0;
         padding-left: 7%;
      }
       @include responsiveness('desktop') { 
         order:0;
         width: 50%;
-        margin: 0px; 
+        margin: 0; 
         height: 3rem;  
         line-height: 3rem;  
         padding-left: 7%;   
@@ -108,7 +104,7 @@
         align-items: center;
         justify-content: center;
         border-radius: 0.25rem;
-        border: 0px;
+        border: 0;
 
         @include responsiveness('tablet') {
             order:0;

@@ -10,25 +10,27 @@ import sideData from './data/videos.json'
 function App() {
   const [dataDetails, setDataDetails] = useState(mainData)
   const [data, setData] = useState(sideData)
-  const [identification, setIdentification] = useState('84e96018-4022-434e-80bf-000ce4cd12b8')
-  
+  const [identification, setIdentification] = useState(dataDetails[0].id)
+ 
   const updateIdentification = (event, text) => {
     setIdentification(text)
   }
   const videoMain = dataDetails.filter((dataDetail) => (dataDetail.id == identification)).map((dataDetail) => (
-    <video className='video-Image' controls poster= {dataDetail.image} key={dataDetail.id}>
+    <div className='video-container'>
+    <video className='video-container__Image' controls poster= {dataDetail.image} key={dataDetail.id}>
     </video>
+    </div>
   ))
 
   const listDataMain = dataDetails.filter((dataDetail) => (dataDetail.id == identification)).map((dataDetail) => (
     <section className='main-video' key={dataDetail.id}>
     <h2 className='main-video__header'> {dataDetail.title} </h2>
     <div className='main-video__info'>
-    <div className='main-video__info1'> 
+    <div className='main-video__info-First'> 
     <p className='main-video__author'> <span>By</span> {dataDetail.channel}</p>
-    <p className='main-video__date'> {dataDetail.timestamp}  </p> 
+    <p className='main-video__date'> {new Date(dataDetail.timestamp).toLocaleString('en-US', {year: 'numeric', month: 'numeric', day: 'numeric'})}  </p> 
     </div> 
-    <div className='main-video__info2'>
+    <div className='main-video__info-Second'>
      <p className='main-video__views'> {dataDetail.views} </p>
      <p className='main-video__likes'> {dataDetail.likes} </p>
     </div> 
@@ -60,7 +62,7 @@ console.log(dataDetails[0].comments[1].name)
       <img className = 'comment__user-Image'/>
       <div className = 'comment__user-Info'> 
         <p className = 'comment__user-Name'> {commentItem.name} </p>
-        <p className = 'comment__user-Date'>  {commentItem.timestamp} </p>
+        <p className = 'comment__user-Date'>  {new Date(commentItem.timestamp).toLocaleString('en-US', {year: 'numeric', month: 'numeric', day: 'numeric'})} </p>
         <p className = 'comment__user-Text'> 
         {commentItem.comment}
         </p>
@@ -77,7 +79,7 @@ console.log(dataDetails[0].comments[1].name)
       <main className='main'>
         <div className='main__subdivision' >   
         {listDataMain}
-            
+           
         {commentMain}
         
       </div> 

@@ -38,7 +38,7 @@ body {
   .side-videos {
     border-left: 1.5px #E1E1E1 solid;
     width: 35%;
-    margin: 0px;
+    margin: 0;
     padding-top: 0.5rem;
     padding-left: 1rem;
   }
@@ -96,7 +96,7 @@ body {
   font-size: 0.8rem;
   line-height: 1.3rem;
   font-weight: 700;
-  margin: 0px;
+  margin: 0;
   flex: 1 1 100%;
 }
 @media (max-width: 1279.5px) and (min-width: 768px) {
@@ -111,7 +111,7 @@ body {
 }
 .side-videos__Creator {
   color: #323232;
-  margin: 0px;
+  margin: 0;
 }
 @media (max-width: 1279.5px) and (min-width: 768px) {
   .side-videos__Creator {

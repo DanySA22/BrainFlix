@@ -17,7 +17,7 @@
     @include responsiveness('desktop') {   
         border-left: 1.5px $colorSecMer solid;
         width:35%;  
-        margin: 0px; 
+        margin: 0; 
         padding-top: 0.5rem;
         padding-left: 1rem; 
     }
@@ -25,23 +25,13 @@
     &__header{ 
         color: $colorS;
         @include SizeLineWeight(0.8rem, 1.1rem, 600);
-
-        @include responsiveness('tablet') {
-        }
-        @include responsiveness('desktop') {         
-        }
-    
+  
     }
     &__Item{
         display: flex;
         flex-direction: row;
         justify-content: start;
         margin-bottom: 1rem;
-
-        @include responsiveness('tablet') {
-        }
-        @include responsiveness('desktop') {         
-        }
     }
     &__Image{
         border-radius: 10%;
@@ -76,7 +66,7 @@
     }
     &__Name{
         @include SizeLineWeight(0.8rem, 1.3rem, 700);
-        margin: 0px;
+        margin: 0;
         flex: 1 1 100%;
 
         @include responsiveness('tablet') {
@@ -88,7 +78,7 @@
     }
     &__Creator{
         color: $colorB;
-        margin: 0px;
+        margin: 0;
 
         @include responsiveness('tablet') {
             font-size: 1rem;

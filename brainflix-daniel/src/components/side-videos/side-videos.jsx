@@ -3,10 +3,7 @@ import mainData from '../../data/video-details.json'
 import sideData from '../../data/videos.json'
 
 function SideVideos({data, idChange, identifier, test}) {
-  console.log(data)
   const dataElements = data
-  console.log(dataElements)
- console.log(identifier)
   const listData = dataElements.filter((dataElement) => (dataElement.id !== identifier)).map((dataElement) =>(
     <div className='side-videos__Item' key={dataElement.id} onClick={event => test(event, dataElement.id)}> 
     <img className='side-videos__Image' src= {dataElement.image}/>

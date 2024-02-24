@@ -1,6 +1,6 @@
 @use './variables';
 
-// For phone body copy and footer copy
+
 @mixin SizeLineWeight($size, $height, $weight) {
     font-size: $size;
     line-height: $height;

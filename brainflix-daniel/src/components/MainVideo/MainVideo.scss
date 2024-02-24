@@ -1,0 +1,409 @@
+.main-video{
+    margin: 1rem;
+
+    @include responsiveness('tablet') {
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+    @include responsiveness('desktop') {   
+        margin: 0; 
+            
+    }
+    &__header{
+        @include SizeLineWeight(1.5rem, 2rem, 700);
+
+        @include responsiveness('tablet') {
+            font-size: 2rem;
+        }
+        @include responsiveness('desktop') {   
+            font-size: 2rem;      
+        }
+    }
+
+    &__info{
+        border-top: 1.5px $colorSecMer solid;
+        border-bottom: 1.5px $colorSecMer solid;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        @include responsiveness('tablet') {
+            border-top: 0;
+            padding-bottom: 1rem;
+        }
+        @include responsiveness('desktop') { 
+            border-top: 0;
+            padding-bottom: 1rem;   
+            padding-right: 1.5rem;     
+        }
+    }
+
+    &__info-First{
+        
+        flex: 1 1 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        @include responsiveness('tablet') {
+            
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            flex: 0 0 35%;
+
+        }
+        @include responsiveness('desktop') {  
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            flex: 0 0 35%;       
+        }
+    
+    }
+    
+    &__author{ 
+        @include SizeLineWeight(0.8rem, 1.1rem, 700);
+        margin-bottom: 0;
+        @include responsiveness('tablet') {
+            margin: 0;
+        }
+        @include responsiveness('desktop') {
+            margin: 0;         
+        }
+    }
+
+    &__date{
+       color: $colorS;
+
+       @include responsiveness('tablet') {
+        margin: 0;
+    }
+    @include responsiveness('desktop') {  
+        margin: 0;       
+    }
+    
+    }
+
+    &__info-Second{
+        
+        flex: 1 1 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        @include responsiveness('tablet') {
+            
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            flex: 0 0 35%;
+
+        }
+        @include responsiveness('desktop') {   
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            flex: 0 0 35%;      
+        }
+    }
+
+    &__views{
+        background-image: url('./assets/Icons/views.svg');
+        background-position: 4% center;
+        background-repeat: no-repeat;
+        color: $colorS;
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @include responsiveness('tablet') {
+            margin: 0;
+            width: 40%;
+            align-items: end;
+        }
+        @include responsiveness('desktop') {         
+            margin: 0;
+            width: 40%;
+            align-items: end;
+        }
+    }
+
+    &__likes{
+        color: $colorS;
+        background-image: url('./assets/Icons/likes.svg');
+        background-position: 4% center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @include responsiveness('tablet') {
+            margin: 0;
+            width: 60%;
+            align-items: end;
+            background-position: center;
+            
+        }
+        @include responsiveness('desktop') {  
+            margin: 0;
+            width: 60%;
+            align-items: end;
+            background-position: center;       
+        }
+    }
+
+       
+    &__text{
+        @include SizeLineWeight(0.8rem, 1.1rem, 400);
+        color: $colorB;
+
+        @include responsiveness('tablet') {
+            margin-top: 2rem;
+            width: 95%;
+            @include SizeLineWeight(0.9rem, 1.5rem, 400);
+        }
+        @include responsiveness('desktop') {  
+            margin-top: 2rem;
+            @include SizeLineWeight(0.9rem, 1.5rem, 400);
+            padding-right: 1.5rem;     
+        }
+    } 
+}
+
+
+.comment{
+    margin: 1rem;
+    @include responsiveness('tablet') {
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+    @include responsiveness('desktop') {  
+        margin: 0; 
+                
+    }
+    &__amount{
+        @include SizeLineWeight(0.8rem, 1.1rem, 700);
+
+        @include responsiveness('tablet') {
+            font-size: 0.9rem;
+        }
+        @include responsiveness('desktop') {  
+            font-size: 0.9rem;       
+        }
+    }
+    &__subdivision{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: end;
+        padding-bottom: 1.2rem;
+        
+        @include responsiveness('tablet') {
+            justify-content: end;
+            
+        }
+        @include responsiveness('desktop') {
+            justify-content: end;
+            margin-left: 1rem;
+        }}  
+    &__image{
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        margin-top: 3rem;
+        @include responsiveness('tablet') {
+            margin-top: 3.5rem;
+        
+        }
+    }
+    &__form{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        flex: 1 1 76%;
+        
+        margin-left: 1rem;
+        @include responsiveness('tablet') {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        @include responsiveness('desktop') {
+            flex-direction: row;
+            justify-content: space-between;
+            padding-right: 1.5rem;      
+        }
+    }
+    &__form-Label{
+        margin: 1.5rem 0 0.5rem;
+        color: $colorS;
+        
+        @include SizeLineWeight(0.8rem, 1.25rem, 600);
+
+        @include responsiveness('tablet') {
+            
+            width: 100%;
+        }
+        @include responsiveness('desktop') {   
+            width: 100%;     
+        }
+       
+    }
+    &__form-Input{
+        border: 1px $colorSecMer solid;
+        width: 100%;
+        height: 7rem;
+        border-radius: 0.25rem;
+        padding: 0.75rem;
+        background-color: $colorSecAl;
+        font-family: 'AvenirNext LT Pro', sans-serif;
+        padding-top: 1rem;
+        overflow-y: hidden;
+        @include responsiveness('tablet') {
+            width: 70%;
+            padding: 1rem;
+            height: 3rem;
+            
+        }
+        @include responsiveness('desktop') {
+            width: 70%;
+            padding: 1rem;
+            height: 3rem;
+        }
+
+    }
+    
+    &__submit-Button{
+        width: 100%;
+        color: $colorW;
+        padding-top: 0.7rem;
+        padding-bottom: 0.7rem;
+        border-radius: 0.2rem;
+        border: 0;
+        margin-top: 1.5rem;
+        @include SizeLineWeight(0.7rem, 1.25rem, 700);
+        background-color: $colorBlue;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-image: url('./assets/Icons/add_comment.svg');
+        background-position: 4% center;
+        background-repeat: no-repeat;
+
+        @include responsiveness('tablet') {
+            width: 25%;
+            height: 3rem;
+            align-self: end;
+            margin: 0;
+        }
+        @include responsiveness('desktop') {
+            width: 25%;
+            height: 3rem;
+            align-self: end;
+            margin: 0;
+            
+        }
+       
+        &--text{
+            margin: 0;
+            text-align: center;
+                 
+        }
+    }
+    
+    &__submit-Button:hover{
+        background-color: $colorSecBlue;
+    }
+  
+    &__user{
+        border-top: 1px $colorSecMer solid;
+        border-bottom: 1px $colorSecMer solid;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: end;
+        padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
+        
+
+        @include responsiveness('tablet') {
+            justify-content: end;
+            
+        }
+        @include responsiveness('desktop') {
+            justify-content: end;
+            margin-left: 1rem;
+           
+        }
+        &--border {
+            border-bottom: 0;
+        }
+    }
+    &__user-Image{
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        background-color: $colorSecMer;
+    }
+    &__user-Info{
+        flex: 1 1 76%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        margin-left: 1rem;
+        
+        @include responsiveness('tablet') {
+            min-width: 88%;
+            margin-left: 1rem;
+        }
+        @include responsiveness('desktop') {
+            
+            max-width: none;
+            margin-left: 1rem;
+            flex: 1 0 0;
+            padding-right: 1.5rem;
+        }
+    }
+
+    &__user-Name{
+        margin: 0;
+        @include SizeLineWeight(0.8rem, 1.1rem, 700);
+        @include responsiveness('tablet') {
+            font-size: 0.9rem;
+        }
+        @include responsiveness('desktop') {
+            font-size: 0.9rem;
+        }
+    }
+    &__user-Date{
+        margin: 0;
+        color: $colorS;
+        @include SizeLineWeight(0.8rem, 1.1rem, 400);
+        @include responsiveness('tablet') {
+            font-size: 0.9rem;
+        }
+        @include responsiveness('desktop') {
+            font-size: 0.9rem;
+        }
+    }
+    &__user-Text{
+        @include SizeLineWeight(0.8rem, 1.1rem, 400);
+        margin-bottom: 0;
+        min-width: 100%;
+        color: $colorB;
+
+        @include responsiveness('tablet') {
+            @include SizeLineWeight(0.9rem, 1.5rem, 400);
+        }
+        @include responsiveness('desktop') {    
+            @include SizeLineWeight(0.9rem, 1.5rem, 400);     
+        }
+   
+    }
+}

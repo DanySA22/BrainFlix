@@ -9,7 +9,6 @@ function Navigation ()  {
       <img src= {logo} alt='Brainflix logo' className='header__logo'/>
       <div className='header__functionalities'>
       <textarea  defaultValue={'Search'} className ='header__search' >
-         
       </textarea>
       <button className ='header__upload'>  UPLOAD </button>
       <img src={mohan} alt= "Mohan's Image" className='header__image'/>

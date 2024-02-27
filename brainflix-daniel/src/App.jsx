@@ -8,12 +8,12 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 function App() {
  
   return (
-
+  
     <BrowserRouter>
     <Routes>
         <Route path = "/"  element={<HomePage/>}/>
         <Route path = "/upload"  element = {<UploadPage/>}/>
-        <Route path = 'video/:id'  element = {<VideoDetailsPage/>}/>
+        <Route path = '/video/:id'  element = {<VideoDetailsPage/>}/>
         <Route path = '*'  element = {<NotFoundPage/>}/>
 
     </Routes>

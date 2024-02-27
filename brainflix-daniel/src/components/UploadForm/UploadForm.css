@@ -43,7 +43,6 @@ body {
   .upload-video {
     padding-left: 7rem;
     padding-right: 7rem;
-    border: 2px red solid;
   }
 }
 .upload-video__header {

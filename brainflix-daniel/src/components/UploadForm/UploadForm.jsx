@@ -1,5 +1,6 @@
 import './UploadForm.scss'
 import videopreview from '../../assets/images/Upload-video-preview.jpg';
+import { Link } from 'react-router-dom';
 
 function UploadForm() {
 
@@ -24,9 +25,9 @@ function UploadForm() {
         </div> 
         <div className='upload-video__Buttons'>
             {/* Even when the button is outside the form element it can be used to submit the form */}
-          <button className="upload-video__cancel-Button"> <p className="comment__cancel-Button--text"> CANCEL </p></button>
+          <button className="upload-video__cancel-Button" onClick={() => (alert('Submission has being cancelled. You will be routed to the Main Page'))}> <p className="comment__cancel-Button--text"> CANCEL </p></button>
 
-          <button className="upload-video__submit-Button"> <p className="comment__submit-Button--text"> PUBLISH </p></button>
+          <button className="upload-video__submit-Button" onClick={() => (alert('Submission has being completed. You will be routed to the Main Page'))}> <p className="comment__submit-Button--text"> PUBLISH </p></button>
           
         </div>
       

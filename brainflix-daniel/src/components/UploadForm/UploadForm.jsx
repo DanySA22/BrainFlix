@@ -15,14 +15,14 @@ function UploadForm() {
           
           <form action="" className="upload-video__form">
               <label className="upload-video__form-Label"> TITLE YOUR VIDEO </label>
-              <textarea  defaultValue={'Add a title to your video'} name="nameInput" className="upload-video__form-Input">
+              <textarea  defaultValue={'Add a title to your video'} name="nameInput" className="upload-video__form-Input upload-video__form-Input--height">
               </textarea>
               <label className="upload-video__form-Label"> ADD A VIDEO DESCRIPTION </label>
               <textarea  defaultValue={'Add a description to your video'} name="nameInput" className="upload-video__form-Input">
               </textarea>
           </form> 
         </div> 
-        <div>
+        <div className='upload-video__Buttons'>
             {/* Even when the button is outside the form element it can be used to submit the form */}
           <button className="upload-video__cancel-Button"> <p className="comment__cancel-Button--text"> CANCEL </p></button>
 

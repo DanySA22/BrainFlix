@@ -82,6 +82,7 @@ const commentsDetails = dataDetails.comments.map((comment) =>
               </textarea>
               <button className="comment__submit-Button"> <p className="comment__submit-Button--text"> COMMENT </p></button>
           </form> 
+          
         </div> 
        
       <div className = 'comment__display'>

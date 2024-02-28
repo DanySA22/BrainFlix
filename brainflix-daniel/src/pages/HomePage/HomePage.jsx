@@ -15,12 +15,11 @@ function HomePage()  {
  
   useEffect(() => {
     const videoList = async () => {
-      try{
-       const dataList = await axios.get('https://unit-3-project-api-0a5620414506.herokuapp.com/videos', {
+      const dataList = await axios.get('https://unit-3-project-api-0a5620414506.herokuapp.com/videos', {
            params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}
        });
        console.log(dataList.data)
-       setList(dataList.data)} catch (error) {console.error('This is the issue:', error)}
+       setList(dataList.data)
    };
    videoList()
    }, [])

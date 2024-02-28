@@ -33,9 +33,9 @@ function MainVideo({selectedVideo}) {
      return Math.floor(proportion) + ' ' + 'seconds ago'}
    
 }
-
-// map method over the comment user section of the current selected object
-const commentsDetails = selectedVideo.comments.map((comment) =>
+console.log(selectedVideo.comments)
+//map method over the comment user section of the current selected object
+const commentsDetails = selectedVideo.comments && selectedVideo.comments.length > 0 ?(selectedVideo.comments.map((comment) => (
                <div className = 'comment__user' key={comment.id}>
           <img className = 'comment__user-Image'/>
           <div className = 'comment__user-Info'> 
@@ -46,12 +46,12 @@ const commentsDetails = selectedVideo.comments.map((comment) =>
             </p>
           </div>
         </div>
-      )  
-  
-  return (
-        <>
-      {/* Start of main video general information section */}
-       <section className='main-video'>
+      ))): null 
+console.log(commentsDetails)
+return  (
+      <>
+    
+  <section className='main-video'>
     <h2 className='main-video__header'> {selectedVideo.title} </h2>
     <div className='main-video__info'>
      <div className='main-video__info-First'> 
@@ -73,7 +73,7 @@ const commentsDetails = selectedVideo.comments.map((comment) =>
 
     {/* Start of main video comment section */}
     <section className='comment'>
-      <h2 className="comment__amount"> {selectedVideo.comments.length} Comments </h2>
+      <h2 className="comment__amount"> {selectedVideo.comments?selectedVideo.comments.length:null} Comments </h2>
       <div className="comment__subdivision">
           <img src={mohan}  className="comment__image" alt="Mohan Muruge image" />
           <form action="" className="comment__form">
@@ -93,7 +93,7 @@ const commentsDetails = selectedVideo.comments.map((comment) =>
       {/* End of main video comment section */}
         </>
 
-      )
+) 
 
 }
 

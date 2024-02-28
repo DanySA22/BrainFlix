@@ -1,13 +1,14 @@
 import './SideVideos.scss'
-
-function SideVideos({data, dataDetails , updateIdentification}) {
-  const dataElements = data
-  const listData = dataElements.filter((dataElement) => (dataElement.id !== dataDetails.id)).map((dataElement) =>(
-    <div className='side-videos__Item' key={dataElement.id} onClick={event => updateIdentification(event, dataElement.id) }> 
-    <img className='side-videos__Image' src= {dataElement.image}/>
+//adding a link allow me to catch the ids of the element but I need
+//a way to pass the data here (that is state as a prop)
+function SideVideos({list, selectedVideo}) {
+  console.log(list)
+  const listData = list.filter((item) => (item.id !== selectedVideo.id)).map((item) =>(
+    <div className='side-videos__Item' key={item.id}> 
+    <img className='side-videos__Image' src= {item.image}/>
     <div className='side-videos__Info'>
-      <p className='side-videos__Name'> {dataElement.title} </p>
-      <p className='side-videos__Creator'> {dataElement.channel} </p>
+      <p className='side-videos__Name'> {item.title} </p>
+      <p className='side-videos__Creator'> {item.channel} </p>
     </div>
   </div>
   ))

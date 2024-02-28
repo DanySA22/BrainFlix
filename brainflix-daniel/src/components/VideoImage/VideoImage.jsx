@@ -1,10 +1,11 @@
 import './VideoImage.scss'
 
-function VideoImage({dataDetails}){
+function VideoImage({selectedVideo}){
+    console.log(selectedVideo)
     return (
         <>
         <div className='video-container'>
-        <video className='video-container__Image' controls poster= {dataDetails.image}>
+        <video className='video-container__Image' controls poster= {selectedVideo.image}>
         </video>
         </div>       
         </>

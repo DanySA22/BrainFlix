@@ -15,7 +15,6 @@ function App() {
         <Route path = "/upload"  element = {<UploadPage/>}/>
         <Route path = '/video/:id'  element = {<VideoDetailsPage/>}/>
         <Route path = '*'  element = {<NotFoundPage/>}/>
-
     </Routes>
    
     </BrowserRouter>

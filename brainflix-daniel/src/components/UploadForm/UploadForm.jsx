@@ -1,4 +1,4 @@
-import './UploadForm.scss'
+import './UploadForm.scss'     
 import videopreview from '../../assets/images/Upload-video-preview.jpg';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ function UploadForm() {
       <div className="upload-video__subdivision">
           <div className="upload-video__thumbnail">
            <h6 className="upload-video__thumbnail-header"> VIDEO THUMBNAIL </h6>
-           <img src={videopreview}  className="upload-video__thumbnail-image" alt="Mohan Muruge image" />
+           <img src={videopreview}  className="upload-video__thumbnail-image" alt="Mohan Muruge" />
            </div>
           
           <form action="" className="upload-video__form">
@@ -33,7 +33,7 @@ function UploadForm() {
           </form> 
         </div> 
         <div className='upload-video__Buttons'>
-            {/* Even when the button is outside the form element it can be used to submit the form */}
+            
           <button className="upload-video__cancel-Button" onClick={afterCancelVideo}> <p className="comment__cancel-Button--text"> CANCEL </p></button>
 
           <button className="upload-video__submit-Button" onClick={afterSubmitVideo}> <p className="comment__submit-Button--text"> PUBLISH </p></button>

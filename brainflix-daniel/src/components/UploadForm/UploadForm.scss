@@ -88,10 +88,7 @@
         width: 100%;
         border-radius: 0.2rem;
        
-        @include responsiveness('tablet') {
-        }
-        @include responsiveness('desktop') {  
-        }
+     
     }
 
     &__form {
@@ -114,12 +111,7 @@
         color: $colorS;
         @include SizeLineWeight(0.8rem, 1.25rem, 600);
         width: 100%;
-        @include responsiveness('tablet') {
-            
-        }
-        @include responsiveness('desktop') {
-             
-        }
+     
     }
 
     &__form-Input {
@@ -132,16 +124,10 @@
         font-family: 'AvenirNext LT Pro', sans-serif;
         padding-top: 1rem;
         overflow-y: hidden;
-        @include responsiveness('tablet') {
-        }
-        @include responsiveness('desktop') {  
-        }
+      
         &--height{
             height: 3.3rem;
-            @include responsiveness('tablet') {
-            }
-            @include responsiveness('desktop') {  
-            }
+          
         }
     }
     &__Buttons{
@@ -196,10 +182,7 @@
         &--text {
             margin: 0;
             text-align: center;
-            @include responsiveness('tablet') {
-            }
-            @include responsiveness('desktop') {  
-            }
+          
         }
     }
 
@@ -232,11 +215,7 @@
         &--text{
             margin: 0;
             text-align: center;
-            @include responsiveness('tablet') {
             }
-            @include responsiveness('desktop') {  
-            }
-        }
     }
 
     &__submit-Button:hover {

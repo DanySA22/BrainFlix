@@ -1,7 +1,6 @@
 import './VideoImage.scss'
-
+  
 function VideoImage({selectedVideo}){
-    console.log(selectedVideo)
     return (
         <>
         <div className='video-container'>

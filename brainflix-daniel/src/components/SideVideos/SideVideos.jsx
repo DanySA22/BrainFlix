@@ -1,10 +1,9 @@
-import './SideVideos.scss'
+import './SideVideos.scss'    
 import {Link} from "react-router-dom"
 
-//adding a link allow me to catch the ids of the element but I need
-//a way to pass the data here (that is state as a prop)
 function SideVideos({list, selectedVideo}) {
-  console.log(list)
+  //iterate over the API data list of video to render related JSX. It also include Link
+  // to route to the respective endpoint when JSX element is clicked.
   const listData = list.filter((item) => (item.id !== selectedVideo.id)).map((item) =>(
     <div className='side-videos__Item' key={item.id}> 
     <Link to={`/video/${item.id}`} className='side-videos__Image--Link'><img className='side-videos__Image' src= {item.image}/> </Link>

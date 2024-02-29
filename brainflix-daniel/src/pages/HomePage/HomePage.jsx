@@ -1,12 +1,11 @@
 import axios from 'axios';
 import {useState, useEffect} from 'react'
-import {useNavigate, useParams} from "react-router-dom"
 import '../../App.scss';
 import SideVideos from '../../components/SideVideos/SideVideos';
 import Navigation from '../../components/Navigation/Navigation';
 import MainVideo from '../../components/MainVideo/MainVideo'
 import VideoImage from '../../components/VideoImage/VideoImage'
-
+import nameRandom from '../../utilities/NameRandom/NameRandom'
 
 function HomePage()  {
 
@@ -14,47 +13,39 @@ function HomePage()  {
   const [selectedVideo, setSelectedVideo] = useState({})
   const [commentForm, setCommentForm] = useState('')
  const [deletedComment, setDeletedComment] = useState(false)
-  useEffect(() => {
+ 
+ //useEffect that on mount will get the videos' list
+ useEffect(() => {
     const videoList = async () => {
       const dataList = await axios.get('https://unit-3-project-api-0a5620414506.herokuapp.com/videos', {
            params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}
        });
-       console.log(dataList.data)
+       
        setList(dataList.data)
    };
    videoList()
    }, [])
    
- console.log(list)
+//useEffect that on mount will get the first video details' array. It will get re-render when the states
+//commentForm or deletedComment change
    useEffect(() => {
        const oneVideo = async () => {
           const id = '84e96018-4022-434e-80bf-000ce4cd12b8'
           const dataDetail = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}`, {
               params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}
           });
-          console.log(dataDetail.data)
+          
           setSelectedVideo(dataDetail.data)
        };
        oneVideo()
    }, [commentForm, deletedComment])
  
+//this function will be a prop callback for update setCommentForm after event handler onChange on child component  gets call
 const inputResult = (event) => {
     setCommentForm(event.target.value)
     
   }
-
-const nameRandom = () => {
-  let random = Math.random()
-  if (random < 0.2){
-      return 'Sophie Brown'
-  } else if (random < 0.4) {
-      return 'Rajesh Gupta'
-  } else if (random < 0.6) {
-      return 'Elder Rivero'
-  } else if (random < 0.8) {
-      return 'Jon Jones'
-  } else { return ' Jennifer Martin' }
-}
+//this function will be a prop callback for POST on API after event handler onSubmit on child component gets call
 
 const submitResult = (event) => {
   event.preventDefault()
@@ -74,6 +65,8 @@ commentPost()
  }
 }    
 
+//this function will be a prop callback for DELETE on API after event handler onClick on child component gets call
+
 const deleteComment = (commentId) => {
   try {
   const commentDelete = async () => {
@@ -87,12 +80,6 @@ commentDelete()
       console.error('Error deleting the comment:', error)
   }
 }
-
-//The previous function console.log me the result of the commentForm when I click submit not each change 
-//on the process. This function result should be the comment value on the body and  the related useEffect 
-//should only run if the submitResult is being callled  again and no on mount
-
-
 
 return (
 

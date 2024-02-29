@@ -78,7 +78,7 @@ return  (
           <img src={mohan}  className="comment__image" alt="Mohan Muruge image" />
           <form action="" className="comment__form">
               <label className="comment__form-Label"> JOIN THE CONVERSATION </label>
-              <textarea  defaultValue={'Add a new comment'} name="nameInput" className="comment__form-Input">
+              <textarea  defaultValue={'Add a new comment'} name="commentInput" className="comment__form-Input">
               </textarea>
               <button className="comment__submit-Button"> <p className="comment__submit-Button--text"> COMMENT </p></button>
           </form> 

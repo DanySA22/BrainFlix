@@ -12,6 +12,7 @@ function HomePage()  {
 
   const [list, setList] = useState([])
   const [selectedVideo, setSelectedVideo] = useState({})
+  const [commentForm, setCommentForm] = useState({commentInput: ''})
  
   useEffect(() => {
     const videoList = async () => {

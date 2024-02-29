@@ -59,17 +59,34 @@ body {
   border-radius: 10%;
   max-inline-size: 100%;
   block-size: auto;
-  width: 40%;
+  width: 100%;
   aspect-ratio: 1.4;
   background-color: #E1E1E1;
 }
 @media (max-width: 1279.5px) and (min-width: 768px) {
   .side-videos__Image {
-    width: 18%;
+    width: 100%;
   }
 }
 @media (min-width: 1280px) {
   .side-videos__Image {
+    width: 100%;
+  }
+}
+.side-videos__Image--Link {
+  border-radius: 10%;
+  max-inline-size: 100%;
+  block-size: auto;
+  width: 40%;
+  aspect-ratio: 1.4;
+}
+@media (max-width: 1279.5px) and (min-width: 768px) {
+  .side-videos__Image--Link {
+    width: 18%;
+  }
+}
+@media (min-width: 1280px) {
+  .side-videos__Image--Link {
     width: 35%;
   }
 }

@@ -1,9 +1,18 @@
 import './UploadForm.scss'
 import videopreview from '../../assets/images/Upload-video-preview.jpg';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function UploadForm() {
-
+  const navigate = useNavigate()  
+    
+  function afterSubmitVideo (){
+    alert('Submission is succesful! You will be routed to the Main Page') 
+    navigate('/')
+    }
+  function afterCancelVideo (){
+      alert('Submission has being cancelled. You will be routed to the Main Page') 
+      navigate('/')
+      }
     return (
         <>
       <section className='upload-video'>
@@ -25,9 +34,9 @@ function UploadForm() {
         </div> 
         <div className='upload-video__Buttons'>
             {/* Even when the button is outside the form element it can be used to submit the form */}
-          <button className="upload-video__cancel-Button" onClick={() => (alert('Submission has being cancelled. You will be routed to the Main Page'))}> <p className="comment__cancel-Button--text"> CANCEL </p></button>
+          <button className="upload-video__cancel-Button" onClick={afterCancelVideo}> <p className="comment__cancel-Button--text"> CANCEL </p></button>
 
-          <button className="upload-video__submit-Button" onClick={() => (alert('Submission has being completed. You will be routed to the Main Page'))}> <p className="comment__submit-Button--text"> PUBLISH </p></button>
+          <button className="upload-video__submit-Button" onClick={afterSubmitVideo}> <p className="comment__submit-Button--text"> PUBLISH </p></button>
           
         </div>
       

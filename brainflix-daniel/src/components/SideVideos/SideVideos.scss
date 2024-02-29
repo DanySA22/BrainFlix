@@ -37,15 +37,32 @@
         border-radius: 10%;
         max-inline-size: 100%;
         block-size: auto;
-        width: 40%;
+        width: 100%;
         aspect-ratio: 1.4;
         background-color: $colorSecMer;
+        @include responsiveness('tablet') {
+            width: 100%;
+        }
+        @include responsiveness('desktop') {  
+            width: 100%; 
+                
+        }
+
+        &--Link {
+            border-radius: 10%;
+        max-inline-size: 100%;
+        block-size: auto;
+        width: 40%;
+        aspect-ratio: 1.4;
+        
         @include responsiveness('tablet') {
             width: 18%;
         }
         @include responsiveness('desktop') {  
             width: 35%; 
                 
+        }
+
         }
     }
     &__Info{

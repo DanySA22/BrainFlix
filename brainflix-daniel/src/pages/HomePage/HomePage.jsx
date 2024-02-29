@@ -6,7 +6,7 @@ import SideVideos from '../../components/SideVideos/SideVideos';
 import Navigation from '../../components/Navigation/Navigation';
 import MainVideo from '../../components/MainVideo/MainVideo'
 import VideoImage from '../../components/VideoImage/VideoImage'
-import VideoDetailsPage from './VideoDetailsPage';
+
 
 function HomePage()  {
 
@@ -28,7 +28,7 @@ function HomePage()  {
  console.log(list)
    useEffect(() => {
        const oneVideo = async () => {
-          let id = '84e96018-4022-434e-80bf-000ce4cd12b8'
+          const id = '84e96018-4022-434e-80bf-000ce4cd12b8'
           const dataDetail = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}`, {
               params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}
           });
@@ -60,7 +60,7 @@ const submitResult = (event) => {
   event.preventDefault()
  try {
   const commentPost = async () => {
-  let id = '84e96018-4022-434e-80bf-000ce4cd12b8'
+  const id = '84e96018-4022-434e-80bf-000ce4cd12b8'
   const body = 
   {name: nameRandom(),
    comment: commentForm}
@@ -77,7 +77,7 @@ commentPost()
 const deleteComment = (commentId) => {
   try {
   const commentDelete = async () => {
-  let id = '84e96018-4022-434e-80bf-000ce4cd12b8'
+  const id = '84e96018-4022-434e-80bf-000ce4cd12b8'
   const newComment = await axios.delete(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}/comments/${commentId}`, {
   params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
   setDeletedComment(true)
@@ -95,7 +95,7 @@ commentDelete()
 
 
 return (
-  // <><VideoDetailsPage/></>
+
        
     <> 
     <Navigation/> 

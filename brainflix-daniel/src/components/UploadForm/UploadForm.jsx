@@ -10,7 +10,7 @@ function UploadForm() {
     navigate('/')
     }
   function afterCancelVideo (){
-      alert('Submission has being cancelled. You will be routed to the Main Page') 
+      alert('Submission has been cancelled. You will be routed to the Main Page') 
       navigate('/')
       }
     return (
@@ -25,10 +25,10 @@ function UploadForm() {
           
           <form action="" className="upload-video__form">
               <label className="upload-video__form-Label"> TITLE YOUR VIDEO </label>
-              <textarea  defaultValue={'Add a title to your video'} name="nameInput" className="upload-video__form-Input upload-video__form-Input--height">
+              <textarea  placeholder='Add a title to your video' name="nameInput" className="upload-video__form-Input upload-video__form-Input--height">
               </textarea>
               <label className="upload-video__form-Label"> ADD A VIDEO DESCRIPTION </label>
-              <textarea  defaultValue={'Add a description to your video'} name="nameInput" className="upload-video__form-Input">
+              <textarea  placeholder='Add a description to your video' name="nameInput" className="upload-video__form-Input">
               </textarea>
           </form> 
         </div> 

@@ -45,7 +45,7 @@ const commentsDetails = selectedVideo.comments && selectedVideo.comments.length 
             <p className = 'comment__user-Text'> 
             {comment.comment}
             </p>
-            <button onClick={event => deleteComment(comment.id)}> Delete </button>
+            <button className = 'comment__user-Delete' onClick={event => deleteComment(comment.id)}> Delete </button>
           </div>
         </div>
       ))): null 

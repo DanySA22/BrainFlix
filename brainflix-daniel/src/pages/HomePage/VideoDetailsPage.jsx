@@ -26,6 +26,8 @@ useEffect(() => {
 videoList()
 }, [])
 
+const navigate = useNavigate()
+
 const {id} = useParams()
 useEffect(() => {
     const oneVideo = async () => {
@@ -34,8 +36,14 @@ useEffect(() => {
        });
        console.log(dataDetail.data)
        setSelectedVideo(dataDetail.data)
+       
     };
     oneVideo()
+    if (commentForm == '') {
+    window.scrollTo(0, 0)}
+    // else if (deleteComment !== nul){
+    //     window.scrollTo(0, 0)}
+    // }
 }, [id, commentForm, deletedComment])
 console.log(deletedComment)
 const inputResult = (event) => {

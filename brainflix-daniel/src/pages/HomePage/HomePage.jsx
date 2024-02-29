@@ -12,7 +12,7 @@ function HomePage()  {
 
   const [list, setList] = useState([])
   const [selectedVideo, setSelectedVideo] = useState({})
-  const [commentForm, setCommentForm] = useState({commentInput: ''})
+  const [commentForm, setCommentForm] = useState('Add a new comment')
  
   useEffect(() => {
     const videoList = async () => {
@@ -38,7 +38,30 @@ function HomePage()  {
        oneVideo()
    }, [])
  
-//It all display but when the page is called again then it doesn't take the data
+const inputResult = (event) => {
+    setCommentForm(event.target.value)
+    
+  }
+   const submitResult = (event) => {
+  event.preventDefault()
+  inputResult(event)
+   
+}
+
+
+
+useEffect(() => {
+  const commentPost = async () => {
+  let id = '84e96018-4022-434e-80bf-000ce4cd12b8'
+  const body = 
+  {name: 'Elder Rivero',
+   comment: commentForm}
+  const newComment = await axios.post(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}/comments`, body, {
+    params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
+  
+}
+commentPost()
+}, [submitResult])
 
 return (
   // <><VideoDetailsPage/></>
@@ -49,7 +72,7 @@ return (
     <main className='main'>
       <div className='main__subdivision' >   
       
-    <MainVideo selectedVideo = {selectedVideo}/>
+    <MainVideo selectedVideo = {selectedVideo}  commentForm = {commentForm} inputResult = {inputResult} submitResult = {submitResult}/>
              
     </div> 
     <SideVideos list={list}  selectedVideo = {selectedVideo}/> 

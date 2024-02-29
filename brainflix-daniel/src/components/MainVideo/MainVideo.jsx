@@ -1,7 +1,7 @@
 import './MainVideo.scss'
 import mohan from '../../assets/images/Mohan-muruge.jpg';
 
-function MainVideo({selectedVideo}) { 
+function MainVideo({selectedVideo, commentForm, inputResult, submitResult}) { 
    console.log(selectedVideo)
   // timeGap function for Diving Deeper. First I find the time different between current time and the time in the json file data
   //and divided by 1000 to convert it on seconds. Then I found the proportion that 
@@ -76,11 +76,12 @@ return  (
       <h2 className="comment__amount"> {selectedVideo.comments?selectedVideo.comments.length:null} Comments </h2>
       <div className="comment__subdivision">
           <img src={mohan}  className="comment__image" alt="Mohan Muruge image" />
-          <form action="" className="comment__form">
+          <form onSubmit={event => submitResult(event)} className="comment__form">
               <label className="comment__form-Label"> JOIN THE CONVERSATION </label>
-              <textarea  defaultValue={'Add a new comment'} name="commentInput" className="comment__form-Input">
+              <textarea  value={commentForm} onChange={event => inputResult(event)} name="commentInput" className="comment__form-Input">
+              
               </textarea>
-              <button className="comment__submit-Button"> <p className="comment__submit-Button--text"> COMMENT </p></button>
+              <button type="submit" className="comment__submit-Button" > <p className="comment__submit-Button--text"> COMMENT </p></button>
           </form> 
           
         </div> 

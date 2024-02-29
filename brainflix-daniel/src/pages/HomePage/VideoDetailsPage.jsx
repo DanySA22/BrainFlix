@@ -12,6 +12,9 @@ function VideoDetailsPage()  {
    
 const [list, setList] = useState([])
 const [selectedVideo, setSelectedVideo] = useState({})
+const [commentForm, setCommentForm] = useState('')
+const [deletedComment, setDeletedComment] = useState(false)
+
 useEffect(() => {
  const videoList = async () => {
     const dataList = await axios.get('https://unit-3-project-api-0a5620414506.herokuapp.com/videos', {
@@ -33,8 +36,57 @@ useEffect(() => {
        setSelectedVideo(dataDetail.data)
     };
     oneVideo()
-}, [id])
+}, [id, commentForm, deletedComment])
+console.log(deletedComment)
+const inputResult = (event) => {
+    setCommentForm(event.target.value)
+    
+  }
 
+const nameRandom = () => {
+  let random = Math.random()
+  if (random < 0.2){
+      return 'Sophie Brown'
+  } else if (random < 0.4) {
+      return 'Rajesh Gupta'
+  } else if (random < 0.6) {
+      return 'Elder Rivero'
+  } else if (random < 0.8) {
+      return 'Jon Jones'
+  } else { return ' Jennifer Martin' }
+}
+
+const submitResult = (event) => {
+  event.preventDefault()
+ try {
+  const commentPost = async () => {
+  const body = 
+  {name: nameRandom(),
+   comment: commentForm}
+  const newComment = await axios.post(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}/comments`, body, {
+  params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
+  setCommentForm('')
+}
+commentPost()
+ } catch (error) {
+      console.error('Error submitting the form:', error)
+ }
+}    
+
+const deleteComment = (commentId) => {
+  try {
+  const commentDelete = async () => {
+  const newComment = await axios.delete(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}/comments/${commentId}`, {
+  params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
+  setDeletedComment(!deletedComment)
+  console.log(deletedComment)
+  
+}
+commentDelete()
+  } catch (error) {
+      console.error('Error deleting the comment:', error)
+  }
+}
     return (
         
         <>
@@ -43,7 +95,8 @@ useEffect(() => {
     <main className='main'>
       <div className='main__subdivision' >   
       
-    <MainVideo selectedVideo = {selectedVideo}/>
+    <MainVideo selectedVideo = {selectedVideo}  commentForm = {commentForm} inputResult = {inputResult} 
+    submitResult = {submitResult} deleteComment = {deleteComment}/>
              
     </div> 
     <SideVideos list={list}  selectedVideo = {selectedVideo}/> 

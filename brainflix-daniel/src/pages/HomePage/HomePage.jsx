@@ -50,6 +50,7 @@ const inputResult = (event) => {
 const submitResult = (event) => {
   event.preventDefault()
  try {
+ 
   const commentPost = async () => {
   const id = '84e96018-4022-434e-80bf-000ce4cd12b8'
   const body = 

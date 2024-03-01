@@ -60,7 +60,7 @@ body {
   max-inline-size: 100%;
   block-size: auto;
   width: 100%;
-  aspect-ratio: 1.4;
+  aspect-ratio: 1.7;
   background-color: #E1E1E1;
 }
 @media (max-width: 1279.5px) and (min-width: 768px) {
@@ -71,6 +71,7 @@ body {
 @media (min-width: 1280px) {
   .side-videos__Image {
     width: 100%;
+    aspec-ratio: 1;
   }
 }
 .side-videos__Image--Link {
@@ -78,7 +79,7 @@ body {
   max-inline-size: 100%;
   block-size: auto;
   width: 40%;
-  aspect-ratio: 1.4;
+  aspect-ratio: 1.7;
 }
 @media (max-width: 1279.5px) and (min-width: 768px) {
   .side-videos__Image--Link {
@@ -87,7 +88,9 @@ body {
 }
 @media (min-width: 1280px) {
   .side-videos__Image--Link {
-    width: 35%;
+    width: 40%;
+    aspec-ratio: 1;
+    margin-bottom: 0.5rem;
   }
 }
 .side-videos__Info {

@@ -67,7 +67,10 @@
             width: 50%;
         }
         @include responsiveness('desktop') {  
-            width: 40%;
+            width: 35%;
+            height: 100%;
+            
+            margin-top: 1.5rem;
         }
     }
 
@@ -87,7 +90,10 @@
     &__thumbnail-image {
         width: 100%;
         border-radius: 0.2rem;
-       
+        @include responsiveness('desktop') {
+            height: 13.6rem;
+            
+        }
      
     }
 
@@ -102,7 +108,8 @@
         @include responsiveness('tablet') {
         }
         @include responsiveness('desktop') {  
-            width: 55%;
+            width: 62%;
+            
         }
 
     }

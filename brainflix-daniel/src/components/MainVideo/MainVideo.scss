@@ -53,18 +53,18 @@
         justify-content: space-evenly;
 
         @include responsiveness('tablet') {
-            
+            border: 2px red solid;
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: start;
             align-items: center;
-            flex: 0 0 35%;
+            flex: 0 0 45%;
 
         }
         @include responsiveness('desktop') {  
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: start;
             align-items: center;
-            flex: 0 0 35%;       
+            flex: 0 0 45%;       
         }
     
     }
@@ -74,9 +74,11 @@
         margin-bottom: 0;
         @include responsiveness('tablet') {
             margin: 0;
+            margin-right: 2rem;
         }
         @include responsiveness('desktop') {
-            margin: 0;         
+            margin: 0;
+            margin-right: 2rem;         
         }
     }
 
@@ -98,24 +100,25 @@
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-
+        align-items: start;
         @include responsiveness('tablet') {
             
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: end;
             align-items: center;
             flex: 0 0 35%;
 
         }
         @include responsiveness('desktop') {   
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: end;
             align-items: center;
             flex: 0 0 35%;      
         }
     }
 
     &__views{
+        
         background-image: url('../../assets/Icons/views.svg');
         background-position: 4% center;
         background-repeat: no-repeat;
@@ -124,21 +127,20 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
-
+        align-items: end;
+        width: 6rem;
         @include responsiveness('tablet') {
             margin: 0;
-            width: 40%;
             align-items: end;
         }
         @include responsiveness('desktop') {         
             margin: 0;
-            width: 40%;
             align-items: end;
         }
     }
 
     &__likes{
+        
         color: $colorS;
         background-image: url('../../assets/Icons/likes.svg');
         background-position: 4% center;
@@ -146,20 +148,19 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: end;
+        width: 6rem;
 
         @include responsiveness('tablet') {
             margin: 0;
-            width: 60%;
             align-items: end;
-            background-position: center;
+            margin-left: 2rem;
             
         }
         @include responsiveness('desktop') {  
             margin: 0;
-            width: 60%;
             align-items: end;
-            background-position: center;       
+            margin-left: 2rem;     
         }
     }
 

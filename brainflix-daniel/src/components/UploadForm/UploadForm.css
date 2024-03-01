@@ -99,7 +99,9 @@ body {
 }
 @media (min-width: 1280px) {
   .upload-video__thumbnail {
-    width: 40%;
+    width: 35%;
+    height: 100%;
+    margin-top: 1.5rem;
   }
 }
 .upload-video__thumbnail-header {
@@ -124,6 +126,11 @@ body {
   width: 100%;
   border-radius: 0.2rem;
 }
+@media (min-width: 1280px) {
+  .upload-video__thumbnail-image {
+    height: 13.6rem;
+  }
+}
 .upload-video__form {
   width: 100%;
   display: flex;
@@ -134,7 +141,7 @@ body {
 }
 @media (min-width: 1280px) {
   .upload-video__form {
-    width: 55%;
+    width: 62%;
   }
 }
 .upload-video__form-Label {

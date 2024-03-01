@@ -28,6 +28,7 @@
   
     }
     &__Item{
+         
         display: flex;
         flex-direction: row;
         justify-content: start;
@@ -49,7 +50,8 @@
         }
 
         &--Link {
-            border-radius: 10%;
+            
+        border-radius: 10%;
         max-inline-size: 100%;
         block-size: auto;
         width: 40%;
@@ -67,19 +69,23 @@
         }
     }
     &__Info{
+         
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: start;
         padding-left: 0.5rem;
-
+        padding-bottom: 0.5rem;
+        width: 65%;
         @include responsiveness('tablet') {
             padding-left: 1rem;
+            
             width: 35%;
         }
         @include responsiveness('desktop') { 
             padding-left: 1rem;
-            width: 100%;       
+            width: 100%; 
+            padding-bottom: 0.5rem;      
         }
     }
     &__Name{

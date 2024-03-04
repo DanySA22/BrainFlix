@@ -5,6 +5,7 @@ function VideoImage({selectedVideo}){
         <>
         <div className='video-container'>
         <video className='video-container__Image' controls poster= {selectedVideo.image}>
+            <source src='../../assets/samplevideo/BrainStation Sample Video.mp4'  type='video/mp4'/> 
         </video>
         </div>       
         </>

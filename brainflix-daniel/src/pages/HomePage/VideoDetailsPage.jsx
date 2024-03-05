@@ -14,7 +14,7 @@ const [list, setList] = useState([])
 const [selectedVideo, setSelectedVideo] = useState({})
 const [commentForm, setCommentForm] = useState('')
 const [deletedComment, setDeletedComment] = useState(false)
-
+const [count, setCount] = useState(null)
  //useEffect that on mount will get the videos' list
 useEffect(() => {
  const videoList = async () => {
@@ -93,6 +93,25 @@ commentDelete()
       console.error('Error deleting the comment:', error)
   }
 }
+
+//function for increase the like count
+
+const likeCount = (previousLikes, commentId) => {
+    // try {
+    //   const body = {likes: previousLikes + 1}
+    //   const likeIncrease = async () => { 
+    //   const newLikeAdded = await axios.put(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}/comments/${commentId}`, body, {
+    //     params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
+    //   }
+    // setCount(previousLikes + 1)
+    // likeIncrease()
+    // } catch (error) {
+    //   console.error('Error adding a like:', error)
+
+    // }
+    return previousLikes + commentId
+}
+likeCount(7, 8)
     return (
         
         <>
@@ -102,7 +121,7 @@ commentDelete()
       <div className='main__subdivision' >   
       
     <MainVideo selectedVideo = {selectedVideo}  commentForm = {commentForm} inputResult = {inputResult} 
-    submitResult = {submitResult} deleteComment = {deleteComment}/>
+    submitResult = {submitResult} deleteComment = {deleteComment}  likeCount = {likeCount}/>
              
     </div> 
     <SideVideos list={list}  selectedVideo = {selectedVideo}/> 

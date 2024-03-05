@@ -2,7 +2,7 @@ import './MainVideo.scss'
 import mohan from '../../assets/images/Mohan-muruge.jpg';   
 import timeGap from '../../utilities/TimeGap/TimeGap';
 
-function MainVideo({selectedVideo, commentForm, inputResult, submitResult, deleteComment}) { 
+function MainVideo({selectedVideo, commentForm, inputResult, submitResult, deleteComment, likeCount}) { 
   
 //map method over the comment user section of the current selected object
 const commentsDetails = selectedVideo.comments && selectedVideo.comments.length > 0 ?(selectedVideo.comments.map((comment) => (
@@ -16,7 +16,7 @@ const commentsDetails = selectedVideo.comments && selectedVideo.comments.length 
             </p>
             <div className = 'comment__user-Subdivision'>
             <p className = 'comment__user-Text'> Likes: {comment.likes} </p>
-            <button className = 'comment__user-Like' onClick={event => deleteComment(comment.id)}> Like </button>
+            <button className = 'comment__user-Like' onClick={event => likeCount(comment.likes, comment.id)}> Like </button>
              <button className = 'comment__user-Delete' onClick={event => deleteComment(comment.id)}> Delete </button>
             </div>
           </div>

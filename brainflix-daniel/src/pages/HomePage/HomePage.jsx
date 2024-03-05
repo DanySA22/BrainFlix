@@ -13,7 +13,7 @@ function HomePage()  {
   const [selectedVideo, setSelectedVideo] = useState({})
   const [commentForm, setCommentForm] = useState('')
  const [deletedComment, setDeletedComment] = useState(false)
- 
+ const [count, setCount] = useState(null)
  //useEffect that on mount will get the videos' list
  useEffect(() => {
     const videoList = async () => {
@@ -38,7 +38,7 @@ function HomePage()  {
           setSelectedVideo(dataDetail.data)
        };
        oneVideo()
-   }, [commentForm, deletedComment])
+   }, [commentForm, deletedComment, count])
  
 //this function will be a prop callback for update setCommentForm after event handler onChange on child component  gets call
 const inputResult = (event) => {
@@ -82,6 +82,30 @@ commentDelete()
   }
 }
 
+const likeCount = (previousLikes, commentId) => {
+  try {
+    console.log(previousLikes)
+    const id = '84e96018-4022-434e-80bf-000ce4cd12b8'
+    const body = {
+      likes: previousLikes + 1}
+    console.log(body)
+    const likeIncrease = async () => { 
+    const newLikeAdded = await axios.put(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}/comments/${commentId}`, body, {
+      params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
+    console.log(newLikeAdded)
+    }
+    
+  likeIncrease()
+  setCount(previousLikes + 1)
+  console.log(7) 
+  } catch (error) {
+    console.log('Error adding a like:', error)
+
+  }
+  
+}
+// console.log(likeCount())
+// console.log(count)
 return (
 
        
@@ -92,7 +116,7 @@ return (
       <div className='main__subdivision' >   
       
     <MainVideo selectedVideo = {selectedVideo}  commentForm = {commentForm} inputResult = {inputResult} 
-    submitResult = {submitResult} deleteComment = {deleteComment} />
+    submitResult = {submitResult} deleteComment = {deleteComment} likeCount = {likeCount}/>
              
     </div> 
     <SideVideos list={list}  selectedVideo = {selectedVideo}/> 

@@ -87,13 +87,13 @@ commentDelete()
   }
 }
 
+//function for increase the like count
 const likeCount = (previousLikes) => {
   try {
-    console.log(previousLikes)
     const id = '84e96018-4022-434e-80bf-000ce4cd12b8'
+    const currentLikes = parseInt(previousLikes.replace(/,/g, '')) + 1
     const body = {
-      likes: previousLikes + 1}
-    console.log(body)
+      likes: JSON.stringify(currentLikes)}
     const likeIncrease = async () => { 
     const newLikeAdded = await axios.put(`http://localhost:8080/videos/${id}/likes`, body, {
       params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
@@ -102,15 +102,13 @@ const likeCount = (previousLikes) => {
     
   likeIncrease()
   setCount(previousLikes + 1)
-  console.log(7) 
+  
   } catch (error) {
     console.log('Error adding a like:', error)
 
   }
-  
 }
-// console.log(likeCount())
-// console.log(count)
+
 return (
 
        

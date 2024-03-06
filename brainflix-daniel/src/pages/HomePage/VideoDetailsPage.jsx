@@ -28,7 +28,7 @@ videoList()
 
 //useEffect that will get a video details' array based in the video id. 
 //It will get re-render when the states commentForm or deletedComment change;
-//also when the id change
+//also when the id and the like count change
 
 const {id} = useParams()
 useEffect(() => {
@@ -43,7 +43,8 @@ useEffect(() => {
 }, [id, commentForm, deletedComment])
 
 //I add almost an exact duplicate of the previous useEffect but only wiith id parameter
-//in order that the window.ScrollTo(0,0) only applies when video is selected and the id changes
+//in order that the window.ScrollTo(0,0) only applies when video is selected and the id changes. I also add count 
+//because it is relevant to re-render the one video displayed when the count changes
 useEffect(() => {
     const oneVideoLocation = async () => {
         const dataDetail = await axios.get(`http://localhost:8080/videos/${id}`, {
@@ -53,7 +54,7 @@ useEffect(() => {
        window.scrollTo(0, 0)
     };
     oneVideoLocation()
-  }, [id])
+  }, [id, count])
 
 //this function will be a prop callback for update setCommentForm after event handler onChange on child component  gets call
 const inputResult = (event) => {
@@ -99,22 +100,27 @@ commentDelete()
 
 //function for increase the like count
 
-const likeCount = (previousLikes, commentId) => {
-    // try {
-    //   const body = {likes: previousLikes + 1}
-    //   const likeIncrease = async () => { 
-    //   const newLikeAdded = await axios.put(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}/comments/${commentId}`, body, {
-    //     params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
-    //   }
-    // setCount(previousLikes + 1)
-    // likeIncrease()
-    // } catch (error) {
-    //   console.error('Error adding a like:', error)
+const likeCount = (previousLikes) => {
+  try {
+    const currentLikes = parseInt(previousLikes.replace(/,/g, '')) + 1
+    const body = {
+      likes: JSON.stringify(currentLikes)}
+    const likeIncrease = async () => { 
+    const newLikeAdded = await axios.put(`http://localhost:8080/videos/${id}/likes`, body, {
+      params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
+    console.log(newLikeAdded)
+    }
+    
+  likeIncrease()
+  setCount(previousLikes + 1)
+  
+  } catch (error) {
+    console.log('Error adding a like:', error)
 
-    // }
-    return previousLikes + commentId
+  }
+  
 }
-likeCount(7, 8)
+
     return (
         
         <>

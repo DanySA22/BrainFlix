@@ -6,7 +6,7 @@ import Navigation from '../../components/Navigation/Navigation';
 import MainVideo from '../../components/MainVideo/MainVideo';
 import VideoImage from '../../components/VideoImage/VideoImage';
 import nameRandom from '../../utilities/NameRandom/NameRandom'
-
+import {v4 as uuidv4} from 'uuid'
 
 function VideoDetailsPage()  {
    
@@ -18,7 +18,7 @@ const [count, setCount] = useState(null)
  //useEffect that on mount will get the videos' list
 useEffect(() => {
  const videoList = async () => {
-    const dataList = await axios.get('https://unit-3-project-api-0a5620414506.herokuapp.com/videos', {
+    const dataList = await axios.get('http://localhost:8080/videos' , {
         params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}
     });
     setList(dataList.data)
@@ -33,7 +33,7 @@ videoList()
 const {id} = useParams()
 useEffect(() => {
     const oneVideo = async () => {
-        const dataDetail = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}`, {
+        const dataDetail = await axios.get(`http://localhost:8080/videos/${id}`, {
            params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}
        });
        setSelectedVideo(dataDetail.data)
@@ -46,7 +46,7 @@ useEffect(() => {
 //in order that the window.ScrollTo(0,0) only applies when video is selected and the id changes
 useEffect(() => {
     const oneVideoLocation = async () => {
-        const dataDetail = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}`, {
+        const dataDetail = await axios.get(`http://localhost:8080/videos/${id}`, {
            params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}
        });
        setSelectedVideo(dataDetail.data)
@@ -66,9 +66,13 @@ const submitResult = (event) => {
  try {
   const commentPost = async () => {
   const body = 
-  {name: nameRandom(),
-   comment: commentForm}
-  const newComment = await axios.post(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}/comments`, body, {
+  { id: uuidv4(),
+   name: nameRandom(),
+   comment: commentForm, 
+   likes: 0,
+   timestamp: Date.now() 
+  }
+  const newComment = await axios.post(`http://localhost:8080/videos/${id}/comments`, body, {
   params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
   setCommentForm('')
 }
@@ -83,10 +87,9 @@ commentPost()
 const deleteComment = (commentId) => {
   try {
   const commentDelete = async () => {
-  const newComment = await axios.delete(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}/comments/${commentId}`, {
+  const newComment = await axios.delete(`http://localhost:8080/videos/${id}/comments/${commentId}`, {
   params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
   setDeletedComment(!deletedComment)
-  
 }
 commentDelete()
   } catch (error) {

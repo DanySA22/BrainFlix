@@ -6,6 +6,7 @@ import Navigation from '../../components/Navigation/Navigation';
 import MainVideo from '../../components/MainVideo/MainVideo'
 import VideoImage from '../../components/VideoImage/VideoImage'
 import nameRandom from '../../utilities/NameRandom/NameRandom'
+import {v4 as uuidv4} from 'uuid'
 
 function HomePage()  {
 
@@ -17,7 +18,7 @@ function HomePage()  {
  //useEffect that on mount will get the videos' list
  useEffect(() => {
     const videoList = async () => {
-      const dataList = await axios.get('https://unit-3-project-api-0a5620414506.herokuapp.com/videos', {
+      const dataList = await axios.get('http://localhost:8080/videos', {
            params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}
        });
        
@@ -31,7 +32,7 @@ function HomePage()  {
    useEffect(() => {
        const oneVideo = async () => {
           const id = '84e96018-4022-434e-80bf-000ce4cd12b8'
-          const dataDetail = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}`, {
+          const dataDetail = await axios.get(`http://localhost:8080/videos/${id}`, {
               params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}
           });
           
@@ -54,9 +55,13 @@ const submitResult = (event) => {
   const commentPost = async () => {
   const id = '84e96018-4022-434e-80bf-000ce4cd12b8'
   const body = 
-  {name: nameRandom(),
-   comment: commentForm}
-  const newComment = await axios.post(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}/comments`, body, {
+  { id: uuidv4(),
+    name: nameRandom(),
+    comment: commentForm, 
+    likes: 0,
+    timestamp: Date.now() 
+   }
+  const newComment = await axios.post(`http://localhost:8080/videos/${id}/comments`, body, {
   params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
   setCommentForm('')
 }
@@ -72,7 +77,7 @@ const deleteComment = (commentId) => {
   try {
   const commentDelete = async () => {
   const id = '84e96018-4022-434e-80bf-000ce4cd12b8'
-  const newComment = await axios.delete(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}/comments/${commentId}`, {
+  const newComment = await axios.delete(`http://localhost:8080/videos/${id}/comments/${commentId}`, {
   params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
   setDeletedComment(true)
 }
@@ -82,7 +87,7 @@ commentDelete()
   }
 }
 
-const likeCount = (previousLikes, commentId) => {
+const likeCount = (previousLikes) => {
   try {
     console.log(previousLikes)
     const id = '84e96018-4022-434e-80bf-000ce4cd12b8'
@@ -90,7 +95,7 @@ const likeCount = (previousLikes, commentId) => {
       likes: previousLikes + 1}
     console.log(body)
     const likeIncrease = async () => { 
-    const newLikeAdded = await axios.put(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}/comments/${commentId}`, body, {
+    const newLikeAdded = await axios.put(`http://localhost:8080/videos/${id}/likes`, body, {
       params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
     console.log(newLikeAdded)
     }

@@ -14,11 +14,8 @@ const commentsDetails = selectedVideo.comments && selectedVideo.comments.length 
             <p className = 'comment__user-Text'> 
             {comment.comment}
             </p>
-            <div className = 'comment__user-Subdivision'>
-            <p className = 'comment__user-Text'> Likes: {comment.likes} </p>
-            <button className = 'comment__user-Like' onClick={event => likeCount(comment.likes, comment.id)}> Like </button>
-             <button className = 'comment__user-Delete' onClick={event => deleteComment(comment.id)}> Delete </button>
-            </div>
+            <button className = 'comment__user-Delete' onClick={event => deleteComment(comment.id)}> Delete </button>
+            
           </div>
         </div>
       ))): null 
@@ -35,7 +32,7 @@ return  (
      </div> 
      <div className='main-video__info-Second'>
       <p className='main-video__views'> {selectedVideo.views} </p>
-      <p className='main-video__likes'> {selectedVideo.likes} </p>
+      <p className='main-video__likes'onClick={event => likeCount(selectedVideo.likes)}> {selectedVideo.likes} </p>
      </div> 
      </div> 
      <div className='main-video__details'>

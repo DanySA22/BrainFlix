@@ -418,12 +418,6 @@
    
     }
 
-    &__user-Subdivision{
-        display: flex;
-        flex-direction: row;
-        justify-content: start;
-        align-items: center;
-    }
     &__user-Delete{
         margin-top: 1rem;
         color: $colorW;
@@ -435,20 +429,6 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
-    } 
-
-    &__user-Like{
-        margin-top: 1rem;
-        color: $colorW;
-        border-radius: 0.2rem;
-        border: 0;
-        @include SizeLineWeight(0.7rem, 1.25rem, 700);
-        background-color: $colorBlue;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        margin-right: 1rem;
     } 
 }
 

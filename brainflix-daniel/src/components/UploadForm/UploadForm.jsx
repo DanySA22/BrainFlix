@@ -11,6 +11,7 @@ function UploadForm() {
   
   const [uploadTitle, setUploadTitle] = useState('')
   const [uploadDescription, setUploadDescription] = useState('')
+  const [uploadImage, setUploadImage] = useState('')
   const navigate = useNavigate() 
   const inputRef = useRef(null)
   const submitRef = useRef(null)
@@ -24,6 +25,10 @@ const inputResultDescription = (event) => {
   setUploadDescription(event.target.value)
 }
 
+const inputResultImage = (event) => {
+  setUploadImage(event.target.files.value)
+}
+console.log(uploadImage)
 //this function will be a prop callback for POST on API after event handler onSubmit on child component gets call
 const submitResult = (event) => {
 event.preventDefault()
@@ -33,12 +38,12 @@ const body =
 { id: uuidv4(),
  title: uploadTitle,
  channel: nameRandom(),
-image: "https://unit-3-project-api-0a5620414506.herokuapp.com/images/image8.jpg",
+image: uploadImage,
  description: uploadDescription, 
 views: "809,635",
 likes: "400059",
 duration: "12:26",
-video: "https://unit-3-project-api-0a5620414506.herokuapp.com/stream",
+video: "http://localhost:8080/BrainStation%20Sample%20Video.mp4",
 timestamp: Date.now() ,
 comments: []
 }
@@ -46,6 +51,7 @@ const newVideoObject = await axios.post(`http://localhost:8080/videos`, body, {
 params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
 setUploadTitle('')
 setUploadDescription('')
+setUploadImage('')
 }
 uploadVideoObject()
 setTimeout(() => {
@@ -70,7 +76,9 @@ function afterCancelVideo (){
       <div className="upload-video__subdivision">
           <div className="upload-video__thumbnail">
            <h6 className="upload-video__thumbnail-header"> VIDEO THUMBNAIL </h6>
+           
            <img src={videopreview}  className="upload-video__thumbnail-image" alt="Mohan Muruge" />
+           <input type="file" value={uploadImage} onChange={event => inputResultImage(event)} placeholder='Add an Image' name='image' />
            </div>
           
           <form action="" ref={submitRef} className="upload-video__form" onSubmit={event => submitResult(event)} >

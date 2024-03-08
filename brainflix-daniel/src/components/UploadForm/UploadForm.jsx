@@ -11,7 +11,7 @@ function UploadForm() {
   
   const [uploadTitle, setUploadTitle] = useState('')
   const [uploadDescription, setUploadDescription] = useState('')
-  const [uploadImage, setUploadImage] = useState('')
+  const [uploadImage, setUploadImage] = useState(null)
   const navigate = useNavigate() 
   const inputRef = useRef(null)
   const submitRef = useRef(null)
@@ -26,20 +26,32 @@ const inputResultDescription = (event) => {
 }
 
 const inputResultImage = (event) => {
-  setUploadImage(event.target.files.value)
+  setUploadImage(event.target.files[0])
+ 
 }
 console.log(uploadImage)
 //this function will be a prop callback for POST on API after event handler onSubmit on child component gets call
 const submitResult = (event) => {
 event.preventDefault()
+if (!uploadImage) {
+  alert('Please, upload an image before submitting the form')
+  return
+}
 try {
 const uploadVideoObject = async () => {
+
+const formData = new FormData()
+formData.append('image', uploadImage)
+
+const newImage = await axios.post(`http://localhost:8080/videos/upload`, formData, {
+params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
+
 const body = 
 { id: uuidv4(),
  title: uploadTitle,
  channel: nameRandom(),
-image: uploadImage,
- description: uploadDescription, 
+image: "",  //I am adding the source of the image in the backend after set the uploaded image on static folder
+description: uploadDescription, 
 views: "809,635",
 likes: "400059",
 duration: "12:26",
@@ -78,7 +90,7 @@ function afterCancelVideo (){
            <h6 className="upload-video__thumbnail-header"> VIDEO THUMBNAIL </h6>
            
            <img src={videopreview}  className="upload-video__thumbnail-image" alt="Mohan Muruge" />
-           <input type="file" value={uploadImage} onChange={event => inputResultImage(event)} placeholder='Add an Image' name='image' />
+           <input type="file" onChange={event => inputResultImage(event)} placeholder='Add an Image' name='image' />
            </div>
           
           <form action="" ref={submitRef} className="upload-video__form" onSubmit={event => submitResult(event)} >

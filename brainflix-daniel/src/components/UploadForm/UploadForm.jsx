@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {useState, useRef} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import { useNavigate } from 'react-router-dom';
 import nameRandom from '../../utilities/NameRandom/NameRandom';
 import {v4 as uuidv4} from 'uuid';
@@ -12,10 +12,13 @@ function UploadForm() {
   const [uploadTitle, setUploadTitle] = useState('')
   const [uploadDescription, setUploadDescription] = useState('')
   const [uploadImage, setUploadImage] = useState(null)
+  const [defaultThumbnail, setDefaultThumbnail] = useState(videopreview)
   const navigate = useNavigate() 
   const inputRef = useRef(null)
   const submitRef = useRef(null)
 
+console.log(videopreview)
+  console.log(defaultThumbnail)
 //this function will be prop callbacks for update states uploadTitle and uploadDescription after event handler onChange on child component  gets call
 const inputResultTitle = (event) => {
   setUploadTitle(event.target.value)
@@ -37,6 +40,11 @@ if (!uploadImage) {
   alert('Please, upload an image before submitting the form')
   return
 }
+
+if (!uploadTitle || !uploadDescription) {
+  alert('You need to fill all the fields before submitting the form. Thank you')
+  return
+} 
 try {
 const uploadVideoObject = async () => {
 
@@ -64,7 +72,9 @@ params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
 setUploadTitle('')
 setUploadDescription('')
 setUploadImage('')
+setDefaultThumbnail(videopreview)
 }
+
 uploadVideoObject()
 setTimeout(() => {
   alert('Submission is succesful! You will be routed to the Main Page') 
@@ -75,8 +85,18 @@ setTimeout(() => {
     console.error('Error submitting the form:', error)
 }
 }    
-  
- 
+
+useEffect(() => {
+  const retrieveUploadThumbnail = async () => {
+      const retrieveThumbnail = await axios.get(`http://localhost:8080/videos/retrieve-upload`, {
+         params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}
+     });
+     setDefaultThumbnail(retrieveThumbnail)
+     
+  };
+  retrieveUploadThumbnail()
+}, [uploadImage])
+
 function afterCancelVideo (){
       alert('Submission has been cancelled. You will be routed to the Main Page') 
       navigate('/')
@@ -89,8 +109,8 @@ function afterCancelVideo (){
           <div className="upload-video__thumbnail">
            <h6 className="upload-video__thumbnail-header"> VIDEO THUMBNAIL </h6>
            
-           <img src={videopreview}  className="upload-video__thumbnail-image" alt="Mohan Muruge" />
-           <input type="file" onChange={event => inputResultImage(event)} placeholder='Add an Image' name='image' />
+           <img src={defaultThumbnail} className="upload-video__thumbnail-image" alt="Mohan Muruge" />
+           <input className='upload-video__thumbnail-input' type="file" onChange={event => inputResultImage(event)} placeholder='Add an Image' name='image' />
            </div>
           
           <form action="" ref={submitRef} className="upload-video__form" onSubmit={event => submitResult(event)} >

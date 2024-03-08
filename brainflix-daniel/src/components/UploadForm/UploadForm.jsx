@@ -14,12 +14,11 @@ function UploadForm() {
   const [uploadImage, setUploadImage] = useState(null)
   const [defaultThumbnail, setDefaultThumbnail] = useState(videopreview)
   const navigate = useNavigate() 
-  const inputRef = useRef(null)
   const submitRef = useRef(null)
 
-console.log(videopreview)
-  console.log(defaultThumbnail)
-//this function will be prop callbacks for update states uploadTitle and uploadDescription after event handler onChange on child component  gets call
+//these functions will be prop callbacks for update states uploadTitle, uploadDescription
+//and uploadImage after event handlers onChange gets call on upload Form
+
 const inputResultTitle = (event) => {
   setUploadTitle(event.target.value)
 }
@@ -31,39 +30,24 @@ const inputResultDescription = (event) => {
 const inputResultImage = (event) => {
 const file = event.target.files[0]
 setUploadImage(file)
-console.log(uploadImage)
 
 const addImage = async () => {
 const formData = new FormData()
 formData.append('image', file)
-console.log(formData)
-console.log(typeof(file.name.split('.').pop().toLowerCase()))
 const newImage = await axios.post(`http://localhost:8080/videos/upload`, formData, {
 params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
 
-const fileExtension = file.name.split('.').pop().toLowerCase()
+const fileExtension = file.name.split('.').pop().toLowerCase()  //obtaining the extension of the added file
 if (fileExtension == 'mp4') {
    return
 } else {
   const sourceURL = `http://localhost:8080/${newImage.data}`
-console.log(sourceURL)
-setDefaultThumbnail(sourceURL)
+setDefaultThumbnail(sourceURL)   //this will change the thumbnail image source to sourceURL
 }
-
 }
 addImage()
-// const retrieveUploadThumbnail = async () => {
-//     const retrieveThumbnail = await axios.get(`http://localhost:8080/videos/retrieve-upload`, {
-//        params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}
-//    });
-//    console.log(retrieveThumbnail.data)
-//    setDefaultThumbnail(retrieveThumbnail.data)
-   
-// };
-// retrieveUploadThumbnail()
 }
-console.log(uploadImage)
-console.log(defaultThumbnail)
+
 //this function will be a prop callback for POST on API after event handler onSubmit on child component gets call
 const submitResult = (event) => {
 event.preventDefault()
@@ -78,18 +62,12 @@ if (!uploadTitle || !uploadDescription) {
 } 
 try {
 const uploadVideoObject = async () => {
-
-// const formData = new FormData()
-// formData.append('image', uploadImage)
-
-// const newImage = await axios.post(`http://localhost:8080/videos/upload`, formData, {
-// params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
-
 const body = 
 { id: uuidv4(),
  title: uploadTitle,
  channel: nameRandom(),
 image: "",  //I am adding the source of the image in the backend after set the uploaded image on static folder
+//if a video is added instead we will use the default thumbnail as the image
 description: uploadDescription, 
 views: "809,635",
 likes: "400059",
@@ -98,8 +76,7 @@ video: "http://localhost:8080/BrainStation%20Sample%20Video.mp4",
 timestamp: Date.now() ,
 comments: []
 }
-const newVideoObject = await axios.post(`http://localhost:8080/videos`, body, {
-params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
+const newVideoObject = await axios.post(`http://localhost:8080/videos`, body, {params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
 setUploadTitle('')
 setUploadDescription('')
 setUploadImage('')
@@ -116,17 +93,6 @@ setTimeout(() => {
     console.error('Error submitting the form:', error)
 }
 }    
-
-// useEffect(() => {
-//   const retrieveUploadThumbnail = async () => {
-//       const retrieveThumbnail = await axios.get(`http://localhost:8080/videos/retrieve-upload`, {
-//          params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}
-//      });
-//      setDefaultThumbnail(retrieveThumbnail)
-     
-//   };
-//   retrieveUploadThumbnail()
-// }, [uploadImage])
 
 function afterCancelVideo (){
       alert('Submission has been cancelled. You will be routed to the Main Page') 
@@ -156,7 +122,8 @@ function afterCancelVideo (){
         <div className='upload-video__Buttons'>
             
           <button className="upload-video__cancel-Button" onClick={afterCancelVideo}> <p className="comment__cancel-Button--text"> CANCEL </p></button>
-
+{/* I left onClick on the submit button because it is outside the form and I use a reference hook to connect him
+with the actual submit event listener */}
           <button type='submit' className="upload-video__submit-Button" onClick={event => submitResult(event)}> <p className="comment__submit-Button--text"> PUBLISH </p></button>
           
         </div>

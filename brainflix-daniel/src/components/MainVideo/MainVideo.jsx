@@ -1,4 +1,4 @@
-import './MainVideo.scss'
+import './MainVideo.scss'   
 import mohan from '../../assets/images/Mohan-muruge.jpg';   
 import timeGap from '../../utilities/TimeGap/TimeGap';
 

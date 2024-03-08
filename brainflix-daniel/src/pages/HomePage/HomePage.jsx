@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react'   
 import '../../App.scss';
 import SideVideos from '../../components/SideVideos/SideVideos';
 import Navigation from '../../components/Navigation/Navigation';
@@ -97,7 +97,7 @@ const likeCount = (previousLikes) => {
     const likeIncrease = async () => { 
     const newLikeAdded = await axios.put(`http://localhost:8080/videos/${id}/likes`, body, {
       params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
-    console.log(newLikeAdded)
+    
     }
     
   likeIncrease()
@@ -113,7 +113,7 @@ return (
 
        
     <> 
-    <Navigation/> 
+   
     <VideoImage  selectedVideo = {selectedVideo}/>
     <main className='main'>
       <div className='main__subdivision' >   

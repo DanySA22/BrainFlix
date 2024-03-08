@@ -6,7 +6,7 @@ function  UploadPage() {
  
   return (
         <> 
-      <Navigation/> 
+      
       <UploadForm />
       </>
     )

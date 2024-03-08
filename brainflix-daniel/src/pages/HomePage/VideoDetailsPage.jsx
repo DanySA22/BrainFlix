@@ -13,7 +13,7 @@ function VideoDetailsPage()  {
 const [list, setList] = useState([])
 const [selectedVideo, setSelectedVideo] = useState({})
 const [commentForm, setCommentForm] = useState('')
-const [deletedComment, setDeletedComment] = useState(false)
+const [isDeleteComment, setIsDeleteComment] = useState(false)
 const [count, setCount] = useState(null)
  //useEffect that on mount will get the videos' list
 useEffect(() => {
@@ -27,7 +27,7 @@ videoList()
 }, [])
 
 //useEffect that will get a video details' array based in the video id. 
-//It will get re-render when the states commentForm or deletedComment change;
+//It will get re-render when the states commentForm or isDeleteComment change;
 //also when the id and the like count change
 
 const {id} = useParams()
@@ -40,7 +40,7 @@ useEffect(() => {
        
     };
     oneVideo()
-}, [id, commentForm, deletedComment])
+}, [id, commentForm, isDeleteComment])
 
 //I add almost an exact duplicate of the previous useEffect but only wiith id parameter
 //in order that the window.ScrollTo(0,0) only applies when video is selected and the id changes. I also add count 
@@ -80,7 +80,7 @@ const submitResult = (event) => {
 commentPost()
  } catch (error) {
       console.error('Error submitting the form:', error)
- }
+ }  
 }    
 
 //this function will be a prop callback for DELETE on API after event handler onClick on child component gets call
@@ -90,7 +90,7 @@ const deleteComment = (commentId) => {
   const commentDelete = async () => {
   const newComment = await axios.delete(`http://localhost:8080/videos/${id}/comments/${commentId}`, {
   params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
-  setDeletedComment(!deletedComment)
+  setIsDeleteComment(!isDeleteComment)
 }
 commentDelete()
   } catch (error) {
@@ -108,7 +108,7 @@ const likeCount = (previousLikes) => {
     const likeIncrease = async () => { 
     const newLikeAdded = await axios.put(`http://localhost:8080/videos/${id}/likes`, body, {
       params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
-    console.log(newLikeAdded)
+    
     }
     
   likeIncrease()
@@ -124,7 +124,7 @@ const likeCount = (previousLikes) => {
     return (
         
         <>
-        <Navigation/> 
+     
     <VideoImage  selectedVideo = {selectedVideo}/>
     <main className='main'>
       <div className='main__subdivision' >   

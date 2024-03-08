@@ -29,10 +29,41 @@ const inputResultDescription = (event) => {
 }
 
 const inputResultImage = (event) => {
-  setUploadImage(event.target.files[0])
- 
+const file = event.target.files[0]
+setUploadImage(file)
+console.log(uploadImage)
+
+const addImage = async () => {
+const formData = new FormData()
+formData.append('image', file)
+console.log(formData)
+console.log(typeof(file.name.split('.').pop().toLowerCase()))
+const newImage = await axios.post(`http://localhost:8080/videos/upload`, formData, {
+params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
+
+const fileExtension = file.name.split('.').pop().toLowerCase()
+if (fileExtension == 'mp4') {
+   return
+} else {
+  const sourceURL = `http://localhost:8080/${newImage.data}`
+console.log(sourceURL)
+setDefaultThumbnail(sourceURL)
+}
+
+}
+addImage()
+// const retrieveUploadThumbnail = async () => {
+//     const retrieveThumbnail = await axios.get(`http://localhost:8080/videos/retrieve-upload`, {
+//        params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}
+//    });
+//    console.log(retrieveThumbnail.data)
+//    setDefaultThumbnail(retrieveThumbnail.data)
+   
+// };
+// retrieveUploadThumbnail()
 }
 console.log(uploadImage)
+console.log(defaultThumbnail)
 //this function will be a prop callback for POST on API after event handler onSubmit on child component gets call
 const submitResult = (event) => {
 event.preventDefault()
@@ -48,11 +79,11 @@ if (!uploadTitle || !uploadDescription) {
 try {
 const uploadVideoObject = async () => {
 
-const formData = new FormData()
-formData.append('image', uploadImage)
+// const formData = new FormData()
+// formData.append('image', uploadImage)
 
-const newImage = await axios.post(`http://localhost:8080/videos/upload`, formData, {
-params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
+// const newImage = await axios.post(`http://localhost:8080/videos/upload`, formData, {
+// params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
 
 const body = 
 { id: uuidv4(),
@@ -86,16 +117,16 @@ setTimeout(() => {
 }
 }    
 
-useEffect(() => {
-  const retrieveUploadThumbnail = async () => {
-      const retrieveThumbnail = await axios.get(`http://localhost:8080/videos/retrieve-upload`, {
-         params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}
-     });
-     setDefaultThumbnail(retrieveThumbnail)
+// useEffect(() => {
+//   const retrieveUploadThumbnail = async () => {
+//       const retrieveThumbnail = await axios.get(`http://localhost:8080/videos/retrieve-upload`, {
+//          params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}
+//      });
+//      setDefaultThumbnail(retrieveThumbnail)
      
-  };
-  retrieveUploadThumbnail()
-}, [uploadImage])
+//   };
+//   retrieveUploadThumbnail()
+// }, [uploadImage])
 
 function afterCancelVideo (){
       alert('Submission has been cancelled. You will be routed to the Main Page') 

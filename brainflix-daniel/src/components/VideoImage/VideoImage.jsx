@@ -10,19 +10,6 @@ function VideoImage({selectedVideo}){
     const [poster, setPoster] = useState(false)
     const [select, setSelect] = useState()
 
-// console.log(selectedVideo.video)
-// console.log(selectedVideo.image)
-// useEffect(() => {
-//     const reproduceVideo = async () => {
-//         const videoToReproduce = await selectedVideo.video
-//        setSelect(videoToReproduce)
-//        console.log(videoToReproduce)
-//     };
-//     reproduceVideo()
-// }, [])
-
-console.log(select)
-
     return (
         <>
         <div className='video-container'>

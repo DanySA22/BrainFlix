@@ -1,7 +1,8 @@
 import './SideVideos.scss'    
 import {Link} from "react-router-dom"
 
-function SideVideos({list, selectedVideo}) {
+function SideVideos({list, selectedVideo, firstObject}) {
+  console.log(selectedVideo.id)
   //iterate over the API data list of video to render related JSX. It also include Link
   // to route to the respective endpoint when JSX element is clicked.
   const listData = list.filter((item) => (item.id !== selectedVideo.id)).map((item) =>(

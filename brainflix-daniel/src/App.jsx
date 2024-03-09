@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/upload" element={<UploadPage />} />
-        <Route path="/video/:id" element={<VideoDetailsPage />} />
+        <Route path="/video/:id" element={<HomePage/>} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>

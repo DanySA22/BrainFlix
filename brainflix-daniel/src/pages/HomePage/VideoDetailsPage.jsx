@@ -2,7 +2,6 @@ import axios from 'axios';
 import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom'
 import SideVideos from '../../components/SideVideos/SideVideos';
-import Navigation from '../../components/Navigation/Navigation'; 
 import MainVideo from '../../components/MainVideo/MainVideo';
 import VideoImage from '../../components/VideoImage/VideoImage';
 import nameRandom from '../../utilities/NameRandom/NameRandom'

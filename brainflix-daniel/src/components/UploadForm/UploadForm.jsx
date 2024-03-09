@@ -38,7 +38,7 @@ const newImage = await axios.post(`http://localhost:8080/videos/upload`, formDat
 params: {"api_key":"a32a567a-7637-4dec-9793-fd8201ce16e2"}})
 
 const fileExtension = file.name.split('.').pop().toLowerCase()  //obtaining the extension of the added file
-if (fileExtension == 'mp4') {
+if (fileExtension == 'mp4' || fileExtension == 'avi' || fileExtension == 'mov' || fileExtension == 'wmv' || fileExtension == 'mkv') {
    return
 } else {
   const sourceURL = `http://localhost:8080/${newImage.data}`

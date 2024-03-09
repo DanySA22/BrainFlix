@@ -3,7 +3,7 @@ import mohan from '../../assets/images/Mohan-muruge.jpg';
 import timeGap from '../../utilities/TimeGap/TimeGap';
 
 function MainVideo({selectedVideo, commentForm, inputResult, submitResult, deleteComment, likeCount}) { 
-  
+  console.log(selectedVideo)
 //map method over the comment user section of the current selected object
 const commentsDetails = selectedVideo.comments && selectedVideo.comments.length > 0 ?(selectedVideo.comments.map((comment) => (
                <div className = 'comment__user' key={comment.id}>

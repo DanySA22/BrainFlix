@@ -24,7 +24,7 @@ This application allows you to stream and upload videos in an integrate social p
 
 ### Screenshot Sample
 
-![Home Page](./src/assets/images/MainPage_Screenshot.png)
+![Home Page](./brainflix-daniel/src/assets/images/MainPage_Screenshot.png)
 
 ### Features and user instructions
 
